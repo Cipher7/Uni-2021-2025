@@ -17,11 +17,11 @@ void main()
 	{
 		for(int j=0; j < size-i-1; j++)
 		{
-			if(a[i]>a[i+1])
+			if(a[j]>a[j+1])
 			{
-				a[i]=a[i]+a[i+1];
-				a[i+1]=a[i]-a[i+1];
-				a[i]=a[i]-a[i+1];
+				a[j]=a[j]+a[j+1];
+				a[j+1]=a[j]-a[j+1];
+				a[j]=a[j]-a[j+1];
 			}
 		}
 	}

@@ -19,9 +19,9 @@ int main()
 		{
 			if(a[i]>a[i+1])
 			{
-				a[i]=a[i]+a[i+1];
-				a[i+1]=a[i]-a[i+1];
-				a[i]=a[i]-a[i+1];
+				a[j]=a[j]+a[j+1];
+				a[j+1]=a[j]-a[j+1];
+				a[j]=a[j]-a[j+1];
 			}
 		}
 	}
