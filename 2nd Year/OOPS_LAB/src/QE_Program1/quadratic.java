@@ -1,3 +1,5 @@
+package QE_Program1;
+
 import java.util.Scanner;
 
 public class quadratic {

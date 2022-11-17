@@ -1,3 +1,4 @@
+package Student_Program2;
 
 public class Student {
 
