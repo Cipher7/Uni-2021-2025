@@ -44,7 +44,7 @@ class Teaching extends Staff
 		System.out.println("Enter the number of publications : ");
 		int n = sc.nextInt();
 		pub = new String[n];
-		System.out.println("Enter name of publications " + n + " : ");
+		System.out.println("Enter the names of "+ n + " publications : ");
 		for(int i=0;i<n;i++)
 		{
 			pub[i] = sc.next();
