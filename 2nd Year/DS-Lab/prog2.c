@@ -78,7 +78,8 @@ int main()
 				 	break;
 				 delete(a,pos);
 				 break;
-			case 5 : return 0;
+			case 5 : printf("Exiting...");
+				 return 0;
 			default : printf("Invalid Option");
 		}		
 	}
