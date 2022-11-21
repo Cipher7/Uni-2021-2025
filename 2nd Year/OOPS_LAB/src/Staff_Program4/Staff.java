@@ -95,6 +95,7 @@ class Contract extends Staff
 	double period;
 	void readData()
 	{
+		super.readData()
 		System.out.println("Enter period of Contract : ");
 		period = sc.nextDouble();
 	}
