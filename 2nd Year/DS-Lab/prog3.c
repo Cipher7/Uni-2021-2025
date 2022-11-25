@@ -4,7 +4,7 @@ int top,size;
 
 void push(int a[], int n)
 {
-	if(top<size)
+	if(top<size-1)
 	{
 		top += 1;
 		a[top] = n;	
