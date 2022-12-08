@@ -31,11 +31,7 @@ public class Shape {
 		Scanner sc = new Scanner(System.in);
 		for(;;)
 		{
-			System.out.println("1. Circle ");
-			System.out.println("2. Rectangle ");
-			System.out.println("3. Square ");
-			System.out.println("4. Triangle");
-			System.out.println("5. Exit ");
+			System.out.println("1. Circle \n2. Rectangle \n3. Square \n4. Triangle \n5. Exit");
 			System.out.print("Choose one of the above options : ");
 			int ch = sc.nextInt();
 			switch(ch)
@@ -61,6 +57,7 @@ public class Shape {
 			 		 Shape tri = new Shape(bs, ht);
 			 		 break;
 			case 5 : System.out.println("Exiting ...");
+					 sc.close();
 					 System.exit(0);
 			default : System.out.print("Invalid Option!\n");
 			}
