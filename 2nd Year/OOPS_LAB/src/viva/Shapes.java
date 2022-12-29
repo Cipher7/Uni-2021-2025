@@ -1,4 +1,4 @@
-package viva;
+package viva;      // Do not write this while copying in Lab Record/ executing on your own
 import java.util.Scanner;
 
 public class Shapes 
