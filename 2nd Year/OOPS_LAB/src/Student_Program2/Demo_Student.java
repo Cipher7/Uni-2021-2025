@@ -1,4 +1,4 @@
-package Student_Program2;
+package Student_Program2; // Do not write this while copying in Lab Record/ executing on your own
 import java.util.Scanner;
 
 public class Demo_Student {

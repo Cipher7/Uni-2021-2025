@@ -1,4 +1,4 @@
-package Shapes_Program5;
+package Shapes_Program5;        // Do not write this while copying in Lab Record/ executing on your own
 import java.util.Scanner;
 
 public class Shapes 

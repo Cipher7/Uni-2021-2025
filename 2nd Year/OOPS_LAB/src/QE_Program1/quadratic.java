@@ -1,4 +1,4 @@
-package QE_Program1;
+package QE_Program1;      // Do not write this while copying in Lab Record/ executing on your own
 
 import java.util.Scanner;
 

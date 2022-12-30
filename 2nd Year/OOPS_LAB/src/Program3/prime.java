@@ -1,4 +1,4 @@
-package Program3;
+package Program3;  // Do not write this while copying in Lab Record/ executing on your own
 import java.util.Scanner;
 
 public class prime {
