@@ -3,18 +3,26 @@
 
 struct sll
 {
-	int data;
+	int usn;
+	int marks;
+	char name[20];
 	struct sll * link;
 };
 
 typedef struct sll * node;
 node top = NULL;
 
-void push(int n)
+void push()
 {
 	node new;
 	new = (node) malloc(sizeof(struct sll));
-	new->data = n;
+	printf("Enter name : ");
+	scanf("%s", &new->name);
+	printf("Enter usn : ");
+	scanf("%d", &new->usn);
+	printf("Enter marks : ");
+	scanf("%d", &new->marks);
+		
 	new->link = NULL;
 	node temp = top;
 	if(top == NULL)
@@ -34,7 +42,7 @@ void pop()
 	node temp;
 	temp = top;
 	top = top->link;
-	printf("Popping %d \n", temp->data);
+	printf("Popping %d \n", temp->usn);
 	free(temp);
 }
 
@@ -44,7 +52,9 @@ void display()
 	temp = top;
 	while(temp != NULL)
 	{
-		printf("%d ", temp->data);
+		printf("Name : %s ", temp->name);
+		printf("Name : %d ", temp->usn);
+		printf("Name : %d ", temp->marks);
 		temp = temp->link;
 	}
 	printf("\n");
@@ -61,10 +71,7 @@ void main()
 	
 		switch(ch)
 		{
-			case 1: printf("Enter Element to be pushed : ");
-				int n;
-				scanf("%d", &n);
-				push(n);
+			case 1: push();
 				break;
 			case 2: pop();
 				break;
