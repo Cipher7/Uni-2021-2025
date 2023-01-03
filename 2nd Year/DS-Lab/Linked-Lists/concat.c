@@ -8,24 +8,26 @@ struct sll
 };
 
 typedef struct sll * node;
+node start1=NULL, start2=NULL;
 
-void push(int n, node start)
+node create(int arr[], int n)
 {
-	node new;
-	new = (node) malloc(sizeof(struct sll));
-	new->data = n;
-	new->link = NULL;
-	node temp = start;
-	if(start == NULL)
+	node temp, last, t;
+	temp = (node) malloc(sizeof(struct sll));
+	temp->data = arr[0];
+	temp->link = NULL;
+	last = temp;
+
+	for(int i=1; i<n ; i++)
 	{
-		start = new;
-		return;
+		t = (node) malloc(sizeof(struct sll));
+		t->data = arr[i];
+		t->link = NULL;
+		last->link = t;
+		last = t;
 	}
-	while(temp != NULL)
-	{
-		temp = temp->link;
-	}
-	temp->link = new;
+
+	return temp;
 }
 
 node concat(node start1, node start2)
@@ -64,31 +66,25 @@ void display(node start)
 
 void main()
 {
-	int l1, l2, n;
+	int l1, l2;
+	
 	printf("\nEnter length of the first linked list : ");
 	scanf("%d", &l1);
 	printf("\nEnter %d elements : ", l1);
-	node start1 = NULL;
-	for(int i=1; i<=l1; i++)
-	{
-		scanf("%d", &n);
-		printf("%d", n);
-		push(n, start1);
-	}
-	
-	display(start1);
+	int a[l1];
+	for(int i=0;i<l1;i++)
+		scanf("%d", &a[i]);
 
 	printf("\nEnter length of the second linked list : ");
 	scanf("%d", &l2);
 	printf("\nEnter %d elements : ", l2);
-	node start2 = NULL;
-	for(int i=1; i<=l2; i++)
-	{
-		scanf("%d", &n);
-		push(n, start2);
-	}
+	int b[l2];
+	for(int i=0;i<l2;i++)
+		scanf("%d", &b[i]);
 	
-	display(start2);	
-	node final = concat(start1, start2);
+	node first = create(a, l1);
+	node second = create(b, l2);
+
+	node final = concat(first, second);
 	display(final);
 }
