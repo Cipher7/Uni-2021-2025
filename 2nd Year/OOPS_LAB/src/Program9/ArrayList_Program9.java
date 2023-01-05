@@ -19,6 +19,7 @@ public class ArrayList_Program9 {
 			case 1 : System.out.println("Enter the element to be appended : ");
 					 element = sc.next();
 					 obj.add(element);
+					 System.out.println("ArrayList : " + obj);
 					 break;
 			
 			case 2 : System.out.println("Enter the element to be inserted : ");
@@ -26,6 +27,7 @@ public class ArrayList_Program9 {
 					 System.out.println("Enter the position : ");
 					 int pos = sc.nextInt();
 					 obj.add(pos, element);
+					 System.out.println("ArrayList : " + obj);
 					 break;
 					 
 			case 3 : System.out.println("Enter the element to be searched : ");
@@ -61,6 +63,7 @@ public class ArrayList_Program9 {
 			case 6 : System.out.println("Enter the index to be removed");
 					 int index = sc.nextInt();
 					 obj.remove(index-1);
+					 System.out.println("ArrayList : " + obj);
 					 break;
 				
 			case 7 : Collections.sort(obj);
@@ -71,6 +74,7 @@ public class ArrayList_Program9 {
 					 break;
 					 
 			case 9 : System.out.println("Exiting ...");
+					 sc.close();
 					 System.exit(0);
 
 			default : System.out.println("Invalid Options Entered!\n");
