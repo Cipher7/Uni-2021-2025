@@ -48,11 +48,11 @@ void main()
 			}			
 		}
 		printf("\n");
-		for(int j=0; j <= i+1; j++)
+		for(int l=0; l <= i+1; l++)
 		{
 			printf(" ");
 		}
-		for(int i=1; i<= line_count ; i++)
+		for(int m=1; m<= line_count ; m++)
 		{
 			printf("/\\");
 		}
