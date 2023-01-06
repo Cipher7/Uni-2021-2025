@@ -17,7 +17,7 @@ void push()
 	node new;
 	new = (node) malloc(sizeof(struct sll));
 	printf("Enter name : ");
-	scanf("%s", &new->name);
+	scanf("%s", new->name);
 	printf("Enter usn : ");
 	scanf("%d", &new->usn);
 	printf("Enter marks : ");
@@ -52,9 +52,9 @@ void display()
 	temp = top;
 	while(temp != NULL)
 	{
-		printf("Name : %s ", temp->name);
-		printf("Name : %d ", temp->usn);
-		printf("Name : %d ", temp->marks);
+		printf("\nName : %s ", temp->name);
+		printf("\nUSN : %d ", temp->usn);
+		printf("\nMarks : %d \n", temp->marks);
 		temp = temp->link;
 	}
 	printf("\n");
