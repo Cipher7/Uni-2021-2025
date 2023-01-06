@@ -26,12 +26,12 @@ void main()
 	}
 	
 	int ptr=0;
-
+	int line_count=1;
 	// Displaying using level oreder traversal for binary tree
 	for(int i=levels; i >= 0; i--)
 	{
 		//spacing
-		for(int j=0; j <= i; j++)
+		for(int j=0; j <= i+1; j++)
 		{
 			printf(" ");
 		}
@@ -39,7 +39,7 @@ void main()
 		//printing values
 		for(int k=0; k < pow(2,(levels-i)) ; k++)
 		{
-			printf("%d", a[ptr]);
+			printf("%d ", a[ptr]);
 			ptr++;
 			if(ptr == size)
 			{
@@ -47,6 +47,16 @@ void main()
 				return;
 			}			
 		}
+		printf("\n");
+		for(int j=0; j <= i+1; j++)
+		{
+			printf(" ");
+		}
+		for(int i=1; i<= line_count ; i++)
+		{
+			printf("/\\");
+		}
+		line_count ++;
 		printf("\n");
 	}	
 }
