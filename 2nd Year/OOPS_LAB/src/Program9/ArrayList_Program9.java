@@ -49,7 +49,7 @@ public class ArrayList_Program9 {
 					 for(int i=0; i<obj.size(); i++)
 					 {
 						String str = obj.get(i);
-					 	if(str.startsWith(element));
+					 	if(str.startsWith(element))
 					 	{
 					 		System.out.println(str);
 					 	}
