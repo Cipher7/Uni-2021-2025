@@ -9,7 +9,7 @@ public class Square implements Runnable {
 	}
 	public void run()
 	{
-		System.out.println(Thread.currentThread());
+		//System.out.println(Thread.currentThread());
 		System.out.println("Square of the number is : " + (a*a));
 	}
 }
