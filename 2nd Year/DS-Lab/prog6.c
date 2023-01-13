@@ -19,26 +19,51 @@ node rear = NULL;
 
 void stack_push()
 {
-	// code
+	node new = (node) malloc(sizeof(struct dll));
+	printf("Enter id : ");
+	scanf("%d", &new->id);
+	printf("Enter name : ");
+	scanf("%s", new->name);
+	printf("Enter branch : ");
+	scanf("%s", new->branch);
+	printf("Enter specialization : ");
+	scanf("%s", new->specialization);
+
+	new->llink = NULL;
+	new->rlink = top;
+	top = new;
 }
 
 void stack_pop()
 {
 	node temp = top;
-	printf("Popping %s", temp->name);
+	printf("Popping %s\n", temp->name);
 	top = top->rlink;
 	free(temp);
 }
 
 void queue_push()
 {
-	//code
+	node new = (node) malloc(sizeof(struct dll));
+	printf("Enter id : ");
+	scanf("%d", &new->id);
+	printf("Enter name : ");
+	scanf("%s", new->name);
+	printf("Enter branch : ");
+	scanf("%s", new->branch);
+	printf("Enter specialization : ");
+	scanf("%s", new->specialization);
+	
+	rear->rlink = new;
+	new->llink = rear;
+	new->rlink = NULL;
+	rear = new;
 }
 
 void queue_pop()
 {
 	node temp = front;
-	printf("Popping %s", temp->name);
+	printf("Popping %s\n", temp->name);
 	front = front->rlink;
 	free(temp);
 }
@@ -52,7 +77,7 @@ void stack_display()
 		printf("\nId : %d", temp->id);
 		printf("\nName : %s", temp->name);
 		printf("\nBranch : %s", temp->branch);
-		printf("\nSpecialization : %s\n", temp->specialization);
+		printf("\nSpecialization : %s\n\n", temp->specialization);
 		temp = temp->rlink;
 	}
 }
@@ -66,7 +91,7 @@ void queue_display()
 		printf("\nId : %d", temp->id);
 		printf("\nName : %s", temp->name);
 		printf("\nBranch : %s", temp->branch);
-		printf("\nSpecialization : %s\n", temp->specialization);
+		printf("\nSpecialization : %s\n\n", temp->specialization);
 		temp = temp->rlink;
 	}
 }
