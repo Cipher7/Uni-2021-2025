@@ -29,9 +29,18 @@ void stack_push()
 	printf("Enter specialization : ");
 	scanf("%s", new->specialization);
 
-	new->llink = NULL;
-	new->rlink = top;
-	top = new;
+	if(top == NULL)
+	{
+		top = new;
+		new->llink = NULL;
+		new->rlink = NULL;
+	}
+	else
+	{
+		new->llink = NULL;
+		new->rlink = top;
+		top = new;
+	}
 }
 
 void stack_pop()
@@ -54,10 +63,20 @@ void queue_push()
 	printf("Enter specialization : ");
 	scanf("%s", new->specialization);
 	
-	rear->rlink = new;
-	new->llink = rear;
-	new->rlink = NULL;
-	rear = new;
+	if(front == NULL && rear == NULL)
+	{
+		front = new;
+		rear = new;
+		new->llink = NULL;
+		new->rlink = NULL;
+	}
+	else
+	{
+		rear->rlink = new;
+		new->llink = rear;
+		new->rlink = NULL;
+		rear = new;
+	}
 }
 
 void queue_pop()
@@ -112,7 +131,7 @@ void stack()
 				break;
 			case 3: stack_display();
 				break;
-			case 4: printf("\nReturning to main menu!\n");
+			case 4: printf("\nReturning to main menu!\n\n");
 				return;
 			default: printf("Invalid option!\n");
 		}
@@ -124,7 +143,7 @@ void queue()
 	int ch;
 	while(1)
 	{
-		printf("1. Push \n2. Pop \n3. Display \n4. Exit \nChoose an option : ");
+		printf("1. Enqueue \n2. Dequeue \n3. Display \n4. Exit \nChoose an option : ");
 		scanf("%d", &ch);
 	
 		switch(ch)
@@ -135,7 +154,7 @@ void queue()
 				break;
 			case 3: queue_display();
 				break;
-			case 4: printf("\nReturning to main menu!\n");
+			case 4: printf("\nReturning to main menu!\n\n");
 				return;
 			default: printf("Invalid option!\n");
 		}
