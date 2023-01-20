@@ -27,7 +27,7 @@ void main()
 	
 	int ptr=0;
 	int line_count=1;
-	// Displaying using level oreder traversal for binary tree
+	// Displaying using level order traversal for binary tree
 	for(int i=levels; i >= 0; i--)
 	{
 		//spacing
