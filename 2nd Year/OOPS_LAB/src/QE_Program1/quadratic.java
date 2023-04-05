@@ -29,8 +29,8 @@ public class quadratic {
 			}
 			else if(D > 0)
 			{
-				r1 = (float) (-(b)+Math.sqrt(D));
-				r2 = (float) (-(b)-Math.sqrt(D));
+				r1 = (float) ((-(b)+Math.sqrt(D))/(2*a));
+				r2 = (float) ((-(b)-Math.sqrt(D))/(2*a));
 			}
 			else
 			{
