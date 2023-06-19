@@ -19,17 +19,17 @@ public class QuickSort {
 	
 	public static int partition(int low, int high)
 	{
-		int i=low+1, j=high, key = arr[0];
+		int i=low+1, j=high, key = arr[low];
 		while(i<=j)
 		{
-			while(key >= arr[i])
+			while(i<=j && key >= arr[i])
 				i++;
-			while(key <= arr[j])
+			while(i<=j && key <= arr[j])
 				j--;
 			if(i<j)
 				swap(i,j);
 		}
-		swap(0,j);
+		swap(low,j);
 		return j;
 	}
 	
