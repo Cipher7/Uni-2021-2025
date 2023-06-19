@@ -56,12 +56,13 @@ public class QuickSort {
 		}
 		
 		// QuickSort
+		double st = System.nanoTime();
 		qsort(0,n-1);
+		double end = System.nanoTime();
 		
-		for(int k=0;k<n;k++)
-		{
-			System.out.print(" " + arr[k]);
-		}
+		double time = end - st;
+		time = time/(Math.pow(10,6));
+		System.out.println("\nTime taken : " + time);
 		sc.close();
 	}
 }
