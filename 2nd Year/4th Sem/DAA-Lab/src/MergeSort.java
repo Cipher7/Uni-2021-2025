@@ -44,6 +44,10 @@ public class MergeSort {
 			c[k] = arr[j];
 			j++;k++;
 		}
+//		for(int p=0;p<c.length;p++)
+//		{
+//			arr[i]=c[i];
+//		}
 	}
 	
 	public static void msort(int low, int high)
@@ -94,7 +98,7 @@ public class MergeSort {
 		
 		for(int i=0;i<n;i++)
 		{
-			System.out.println(arr[i]);
+			System.out.println(c[i]);
 		}
 		sc.close();
 	}
