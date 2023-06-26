@@ -66,7 +66,7 @@ public class QuickSort {
 			Random r = new Random();
 			for(int i=0;i<n;i++)
 			{
-				arr[i] = r.nextInt(100);
+				arr[i] = r.nextInt(1000000);
 			}
 		}
 		// QuickSort
@@ -77,6 +77,11 @@ public class QuickSort {
 		double time = end - st;
 		time = time/(Math.pow(10,6));
 		System.out.println("\nTime taken : " + time);
+		
+		for(int i=0;i<n;i++)
+		{
+			System.out.println(arr[i]);
+		}
 		sc.close();
 	}
 }
