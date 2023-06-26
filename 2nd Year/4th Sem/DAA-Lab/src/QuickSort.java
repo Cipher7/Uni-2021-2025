@@ -46,15 +46,29 @@ public class QuickSort {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter choice : ");
+		int choice = sc.nextInt();
 		System.out.println("Enter length : ");
 		int n = sc.nextInt();
 		QuickSort ob = new QuickSort(n);
-		Random r = new Random();
-		for(int i=0;i<n;i++)
+		if(choice == 1)
 		{
-			arr[i] = r.nextInt(100);
+			for(int i=0;i<n;i++)
+				arr[i] = i;
 		}
-		
+		else if(choice == 2)
+		{
+			for(int i=0;i<n;i++)
+				arr[i] = n-i;
+		}
+		else
+		{
+			Random r = new Random();
+			for(int i=0;i<n;i++)
+			{
+				arr[i] = r.nextInt(100);
+			}
+		}
 		// QuickSort
 		double st = System.nanoTime();
 		qsort(0,n-1);
