@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 public class Operations {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String filename = JOptionPane.showInputDialog("Enter Filename : ");
 		filename = "/home/cs151/Uni-2021-2025/2nd Year/OOPS_LAB/src/FileOperations/" + filename;
 		File f = new File(filename);
