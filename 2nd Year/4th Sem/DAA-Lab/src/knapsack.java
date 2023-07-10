@@ -28,25 +28,25 @@ public class knapsack {
 		System.out.println("-----Data-Set------");
 		System.out.print("-------------------");
 		System.out.println("");
-		System.out.print("Objects");
+		System.out.print("Objects  ");
 		for(int i=1;i<=object;i++)
 		{
 			System.out.print(i+"    ");
 		}
 		System.out.println();
-		System.out.print("Profit ");
+		System.out.print("Profit   ");
 		for(int i=0;i<object;i++)
 		{
-			System.out.print(profit[i]+"    ");
+			System.out.print(profit[i]+"  ");
 		}
 		System.out.println();
-		System.out.print("Weight ");
+		System.out.print("Weight   ");
 		for(int i=0;i<object;i++)
 		{
-			System.out.print(weight[i]+"    ");
+			System.out.print(weight[i]+"  ");
 		}
 		System.out.println();
-		System.out.print("P/W    ");
+		System.out.print("P/W      ");
 		for(int i=0;i<object;i++)
 		{
 			System.out.print(p_w[i]+"  ");
@@ -71,21 +71,21 @@ public class knapsack {
 			}
 			}
 		}
-System.out.println("");
+		System.out.println("");
 		System.out.println("-------------------");
 		System.out.println("--After Arranging--");
 		System.out.print("-------------------");
 		System.out.println("");
-		System.out.print("Objects");
+		System.out.print("Objects  ");
 		for(int i=1;i<=object;i++)
 		{
 			System.out.print(i+"    ");
 		}
 		System.out.println();
-		System.out.print("Profit ");
+		System.out.print("Profit   ");
 		for(int i=0;i<object;i++)
 		{
-			System.out.print(profit[i]+"    ");
+			System.out.print(profit[i]+"  ");
 		}
 		System.out.println();
 		System.out.print("Weight ");
@@ -94,7 +94,7 @@ System.out.println("");
 			System.out.print(weight[i]+"    ");
 		}
 		System.out.println();
-		System.out.print("P/W    ");
+		System.out.print("P/W      ");
 		for(int i=0;i<object;i++)
 		{
 			System.out.print(p_w[i]+"  ");
@@ -111,7 +111,7 @@ System.out.println("");
 				m=m-weight[k];
 				k++;
 			}
-else
+			else
 			{
 				
 				double x4=m*profit[k];
@@ -124,5 +124,4 @@ else
 		}
 		System.out.println("Final Profit is="+sum);
 	}
-
 }
