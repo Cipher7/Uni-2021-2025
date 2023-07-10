@@ -1,0 +1,15 @@
+.c1,.c2,.c3,.c4,.c5,.c6{
+    color : green;
+    font-weight: bold;
+}
+.c1{cursor:crosshair}
+.c2{cursor:pointer}
+.c3{cursor:move}
+.c4{cursor:text}
+.c5{cursor:wait}
+.c6{cursor:help}
+
+a:link{color:red}
+a:visited{color:violet}
+a:hover{color:cyan}
+a:active{color:yellow}
