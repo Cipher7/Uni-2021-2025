@@ -29,7 +29,7 @@ def merge_sort(arr):
     return Merge(left_half, right_half)
 
 
-l = input("Enter a list of numbers separated by spaces: ")
+l = input("Enter a list of numbers : ")
 unsorted = [int(num) for num in l.split()]
 
 print("Unsorted list:", unsorted)
