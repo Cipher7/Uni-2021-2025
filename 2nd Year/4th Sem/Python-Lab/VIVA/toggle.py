@@ -1,0 +1,16 @@
+new = []
+l = [20,11,1,3,7,8]
+flag = True
+
+while len(l) != 0:
+    if(flag):
+        new.append(min(l[0:3:]))
+        l.pop(l.index(min(l[0:3:])))
+        flag = False
+    else:
+        new.append(max(l[0:3:]))
+        l.pop(l.index(max(l[0:3:])))
+        flag = True
+
+print(new)
+
