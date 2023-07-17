@@ -1,5 +1,13 @@
+import random
 new = []
 l = [20,11,1,3,7,8]
+
+l = []
+
+for i in range(0,100):
+    n = random.randint(1,100)
+    l.append(n)
+
 flag = True
 
 while len(l) != 0:
