@@ -1,22 +1,20 @@
 import random
-new = []
-l = []
 
-for i in range(0,100):
-    n = random.randint(1,100)
-    l.append(n)
+new_list = []
+original_list = []
+
+for _ in range(100):
+    n = random.randint(1, 100)
+    original_list.append(n)
 
 flag = True
 
-while len(l) != 0:
-    if(flag):
-        new.append(min(l[0:3:]))
-        l.pop(l.index(min(l[0:3:])))
-        flag = False
+while original_list:
+    if flag:
+        new_list.append(min(original_list[:3]))
     else:
-        new.append(max(l[0:3:]))
-        l.pop(l.index(max(l[0:3:])))
-        flag = True
+        new_list.append(max(original_list[:3]))
+    original_list = original_list[3:]
+    flag = not flag
 
-print(new)
-
+print(new_list)
