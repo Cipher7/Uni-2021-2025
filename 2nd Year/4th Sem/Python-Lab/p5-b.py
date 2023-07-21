@@ -9,5 +9,5 @@ with open('file.txt','r') as f:
         matches_email.extend(email_pat.findall(line))
         matches_phno.extend(phnum_pat.findall(line))
 
-print(matches_email)
-print(matches_phno)
+[print(x) for x in matches_email]
+[print(x) for x in matches_phno]
