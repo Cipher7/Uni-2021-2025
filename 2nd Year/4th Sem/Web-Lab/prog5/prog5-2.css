@@ -1,0 +1,8 @@
+body{
+    background-image: url("https://picsum.photos/201/200");
+}
+h1{
+    color: aqua;
+    text-align: center;
+    margin-top: 5cm;
+}
