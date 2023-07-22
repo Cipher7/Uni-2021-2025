@@ -1,0 +1,53 @@
+h1
+{
+    color: beige;
+}
+.container
+{
+    border: 3px;
+    border-radius: 10px;
+    color: antiquewhite;
+}
+.head
+{
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: rgb(73, 70, 70);
+    background-color: rgb(34, 25, 25);
+}
+.mid
+{
+    display: flex;
+}
+.mid1
+{
+    text-align: center;
+    background-color: rgb(113, 194, 194);
+    padding-right: 200px;
+    color: black;
+    padding-top: 100px;
+
+}
+.mid2
+{
+    text-align: center;
+    background-color:rgb(213, 241, 241) ;
+    padding-right: 500px;
+    color: black;
+    padding-top: 100px;
+}
+.bottom
+{
+    color: rgb(0, 0, 0);
+    padding: auto;
+    margin:auto;
+    text-align: center;
+    background-color: rgb(105, 99, 99);
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-bottom: 400px;
+    padding-top: 50px;
+}
