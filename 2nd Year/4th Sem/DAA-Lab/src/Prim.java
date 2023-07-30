@@ -24,13 +24,13 @@ public class Prim {
 						if(adj[i][j] < min)
 						{
 							min = adj[i][j];
-							adj[i][j] = 999;
 							u=i;
 							v=j;
 						}
 					}
 				}
 			}
+			adj[u][v] = adj[v][u] = 999;
 			if(visit[u] == 1 && visit[v] == 0) 
 			{
 				visit[v] = 1;
