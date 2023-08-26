@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Fibonacci series</title>
+    </head>
+    <body>
+        <center>
+        <script >
+            let n = Number(prompt("Enter the number:"))
+            let a = 0
+            let b = 1
+            let c = 0
+            document.write("<h1>" +"Fibonacci series"+"</h1>")
+            if(n==1)
+            {
+                document.write("<h2>"+a+"</h2>")
+            }
+            else if(n==2)
+            {
+                document.write("<h2>"+a+"</h2>")
+                document.write("<h2>"+b+"</h2>")
+            }
+            else if(n>2)
+            {
+                document.write("<h2>"+a+"</h2>")
+                document.write("<h2>"+b+"</h2>")
+                for(i=3;i<=n;i++)
+                {
+                    c = a+ b
+                    a = b
+                    b = c
+                    document.write("<h2>"+c+"</h2>")
+                }
+            }
+            else
+            {
+                alert("Wrong input")
+            }
+        </script>
+        </center>
+    </body>
+</html>
