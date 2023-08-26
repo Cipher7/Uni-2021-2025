@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Country</title>
+        <style>
+            h1{
+                color: red;
+            }
+            #select{
+                color:black;
+            }
+            #display{
+                color:purple;
+            }
+        </style>
+    </head>
+    <script>
+        function myfunction()
+        {
+            let a = document.getElementById("select").value;
+            document.getElementById("display").value=a;
+        }
+    </script>
+    <body>
+        <center>
+        <h1>select a country name to find its capital</h1>
+        <form>
+            Select:
+            <select name="country" id="select" onclick="myfunction()">
+                <option value="New delhi">India</option>
+                <option value="Kathmandu">Nepal</option>
+                <option value="Berlin">Germany</option>
+                <option value="Washington">USA</option>
+                <option value="Tokyo">Japan</option>
+                <option value="Moscow">Russia</option>
+            </select>
+            <br />
+            <label>capital:</label>
+            <input type="text" id="display">
+        </form>
+        </center>
+    </body>
+</html>
