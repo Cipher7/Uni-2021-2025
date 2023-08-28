@@ -18,7 +18,7 @@ public class knapsackDP {
 		keep = new int[objects+1][W+1];
 		for(i=1;i<=objects;i++)
 		{
-			System.out.printf("Enter %d object value and weight", i);
+			System.out.printf("Enter object %d value and weight", i);
 			values[i] = sc.nextInt();
 			weights[i] = sc.nextInt();
 		}
