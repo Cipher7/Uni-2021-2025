@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Mouse Event</title>
+    <script>
+      function mouseHover(image) {
+        image.src = "demo.jpeg";
+      }
+      function mouseOut(image) {
+        document.getElementById("p2").innerHTML = "New Line";
+        image.src = "flower.jpeg";
+        document.getElementById("p1").innerHTML =
+          "This is a text on mouse out Event";
+      }
+    </script>
+  </head>
+  <body>
+    <p id="p2"></p>
+    <img
+      src="mind.jpeg"
+      onmouseover="mouseHover(this)"
+      onmouseout="mouseOut(this)"
+    />
+    <p id="p1"></p>
+  </body>
+</html>
