@@ -42,9 +42,10 @@ public class subset {
 			for(int i=1;i<=k;i++)
 			{
 				if(x[i] == 1)
-					System.out.println(s[i]+" ");
-				System.out.println();
+					System.out.print(s[i]+" ");
+				
 			}
+			System.out.println();
 		}
 		else
 		{
