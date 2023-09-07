@@ -4,12 +4,7 @@ class Palindrome:
         self.isPalindrome = False
 
     def data_palindrome(self):
-        if self.data == self.data[::-1]:
-            self.isPalindrome = True
-        else:
-            self.isPalindrome = False
-
-        return self.isPalindrome
+        return self.data == self.data[::-1]
 
 class StrPalindrome(Palindrome):
     pass
@@ -27,12 +22,7 @@ class IntPalindrome(Palindrome):
             rev = (rev*10) + d
             temp = temp // 10
 
-        if rev == self.num:
-            self.isPalindrome = True
-        else:
-            self.isPalindrome = False
-
-        return self.isPalindrome
+        return rev == self.num
 
 string = input("Enter the input string : ")
 str_obj = StrPalindrome(string)
