@@ -1,7 +1,6 @@
 class Palindrome:
     def __init__(self,data):
         self.data = data
-        self.isPalindrome = False
 
     def data_palindrome(self):
         return self.data == self.data[::-1]
@@ -12,7 +11,6 @@ class StrPalindrome(Palindrome):
 class IntPalindrome(Palindrome):
     def __init__(self, num):
         self.num = num
-        self.isPalindrome = False
 
     def data_palindrome(self):
         temp = self.num
