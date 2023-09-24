@@ -8,6 +8,7 @@
             "</b></td>"
         );
       }
+
       function fill_table(month, month_len) {
         day = 1;
         document.write("<table border=1 cellspacing=3 cellpadding=3%>");
@@ -44,6 +45,7 @@
         }
         document.write("</tr></table><br>");
       }
+
       year = prompt("enter 4 digit year ", 2016);
       today = new Date("January 1, " + year);
       start_day = today.getDay() + 1;
