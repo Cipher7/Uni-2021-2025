@@ -1,24 +1,14 @@
 <html>
   <head>
-    <script language="javascript">
+    <script>
       function day_title(day_name) {
-        document.write(
-          "<td align=center width=35 bgcolor=lightblue><b>" +
-            day_name +
-            "</b></td>"
-        );
+        document.write("<td align=center width=35 bgcolor=lightblue><b>" + day_name + "</b></td>");
       }
 
       function fill_table(month, month_len) {
         day = 1;
         document.write("<table border=1 cellspacing=3 cellpadding=3%>");
-        document.write(
-          "<td colspan=7 align=center bgcolor=red><b>" +
-            month +
-            " " +
-            year +
-            "</b><tr>"
-        );
+        document.write("<td colspan=7 align=center bgcolor=red><b>" + month + " " + year + "</b><tr>");
         day_title("Sun");
         day_title("Mon");
         day_title("Tue");
