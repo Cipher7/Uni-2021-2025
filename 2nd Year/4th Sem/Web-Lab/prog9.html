@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title>Calendar</title>
-</head>
-<body>
+    <title>Calender</title>
     <script>
-        function day_title(day_name) {
-            document.write("<th align='center' width='35' bgcolor='blue'><b>" + day_name + "</b></th>");
+        function day_title(day_name){
+            document.write("<td align = center width = 35 bgcolor = blue<b>" + day_name + "</b></td>");
         }
-        function fill_table(month, month_len) {
-            var day = 1;
-            document.write("<table border='1' cellspacing='3' cellpadding='3%'>");
-            document.write("<tr><td colspan='7' align='center' bgcolor='red'><b>" + month + " " + year + "</b></td></tr>");
-            document.write("<tr>");
+        function fill_table(month,month_len) {
+            day = 1;
+            document.write("<table border = 1 cellspacing = 3 cellpadding = 3%>");
+            document.write("<td colspan = 7 align = center bgcolor = red<b>" + month + " " + year + "</b><tr>");
             day_title("Sun");
             day_title("Mon");
             day_title("Tue");
@@ -22,26 +18,26 @@
             day_title("Sat");
             document.write("</tr><tr>");
             for (var i = 1; i < start_day; i++) {
-                document.write("<td></td>");
+                document.write("<td>");
             }
-            for (var i = start_day; i <= 7; i++) {
-                document.write("<td align='center' bgcolor='silver'>" + day + "</td>");
+            for (var i = start_day; i < 8; i++) {
+                document.write("<td align = center bgcolor = silver>" + day + "</td>");
                 day++;
             }
-            document.write("</tr>");
+            document.write("<tr>");
             while (day <= month_len) {
-                document.write("<tr>");
                 for (var i = 1; i <= 7 && day <= month_len; i++) {
-                    document.write("<td align='center' bgcolor='silver'>" + day + "</td>");
+                    document.write("<td align = center bgcolor = silver>" + day + "</td>");
                     day++;
                 }
-                document.write("</tr>");
+                document.write("<tr>");
+                start_day = i;
             }
-            document.write("</table><br>");
+            document.write("<tr></table><br>");
         }
-        var year = prompt("Enter 4-digit year: ", 2016);
-        var today = new Date("January 1, " + year);
-        var start_day = today.getDay() + 1;
+        year = prompt("Enter 4 digit year: ", 2016);
+        today = new Date("January 1, " + year);
+        start_day = today.getDay() + 1;
         fill_table("January", 31);
         if (year % 4 == 0) {
             fill_table("February", 29);
@@ -59,5 +55,7 @@
         fill_table("November", 30);
         fill_table("December", 31);
     </script>
+</head>
+<body>  
 </body>
 </html>
