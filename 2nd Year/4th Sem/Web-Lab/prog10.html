@@ -1,7 +1,7 @@
 <html>
     <head><title>Program 8-Registration Form Validation</title></head>
-    <body bgcolor="#E4F0F8">
-    <script type='text/javascript'>
+    <body bgcolor="lightblue">
+    <script>
         function formValidator()
         {
         // Make quick references to our fields
@@ -99,8 +99,7 @@
         }
         function lengthRestriction(elem, min)
         {
-            var uInput = elem.value;
-            if(uInput.length >= min)
+            if(elem.value.length >= min)
             {
                 return true;
             }
@@ -127,8 +126,7 @@
         }
         function lengthRestriction1(elem, min, max)
         {
-            var uInput = elem.value;
-            if(uInput.length >= min && uInput.length <= max)
+            if(elem.value.length >= min && elem.value.length <= max)
             {
                 return true;
             }
@@ -144,17 +142,17 @@
     <form onsubmit='return formValidator()' action="right.html">
         First Name(Minimum 6 characters)<font color="red">* </font>
         <input type='text' id='firstname' /><br /><br />
-        Last Name<font color="red"><font color="red">* </font> </font> &nbsp;&nbsp;&nbsp;
+        Last Name<font color="red">* </font>
         <input type='text' id='lastname' /><br /><br />
-        Email Address<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+        Email Address<font color="red">* </font>
         <input type='text' id='email' /><br />
-        <font color="red">(one e-mail id only):</font> &nbsp;&nbsp;&nbsp;
+        <font color="red">(one e-mail id only):</font>
         <font color="redblue">e.g. example@domain.com</font><br /><br/>
-        Password(minimum 6 characters)<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+        Password(minimum 6 characters)<font color="red">* </font> 
         <input type='password' id='pass'><br /><br/>
-        Address<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+        Address<font color="red">* </font>
         <textarea rows="2" cols="20" id='addr' /></textarea> <br /> <br/>
-        Mobile No<font color="red">* </font> &nbsp;&nbsp;&nbsp;
+        Mobile No<font color="red">* </font>
         <input type='text' id='mobileno' /><br />
         Gender: <input type='radio' name="gender">male
         <input type='radio' name="gender">female<br/><br />
