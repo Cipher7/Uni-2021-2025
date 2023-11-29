@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Intro Program</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="app2">
+        <div ng-controller="show3vals">
+            My name is {{fn}} {{ln}} <br>
+            I am from {{place}}      <br>
+            My age is {{age}}
+        </div>
+    </body>
+</html>
+<script>
+    var i2=angular.module("app2", []);
+    i2.controller("show3vals", function($scope){
+        $scope.fn = "Rohan";
+        $scope.ln = "N K";
+        $scope.place = "India";
+        $scope.age = 20;
+    })
+</script>
