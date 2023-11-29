@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>ng-repeat directive</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app>
+        <div ng-init="students = [{name: 'rohan'}, {name: 'kanishk'}, {name: 'sam'}]">
+            <ol>
+                <li ng-repeat="stud in students">
+                    {{stud.name}}
+                </li>
+            </ol>
+        </div>
+    </body>
+</html>
