@@ -1,0 +1,40 @@
+# --------------------- NOTES-------------------------------------------------------------------
+# We created a database called 'college4' with the table called 'student'
+# Commands used --> 
+# show databases;
+# create database college4;
+# show databases;
+# create table student(usn int primary key, name varchar(40), dob date, marks int, gender char);
+# show tables;
+# insert into student values(01, "mark", "2000-11-7", 69, 'M');
+#
+# -------------------------------------------------------------------------------------------------
+
+Question 1
+
+Create 4 tables --> dept, exam_section, hostel
+
+Table dept --> 
+
+create table dept(deptid int primary key, name varchar(40),est date, teachers int);
+insert into dept values(01, "cse", "2000-01-01", 29);
+insert into dept values(02, "ise", "2000-02-02", 25);
+insert into dept values(03, "eee", "2000-03-03", 31);
+insert into dept values(04, "ece", "2000-04-04", 30);
+
+
+Table exam_section -->
+
+create table exam_section(rollno int primary key, name varchar(40), section char, floor int);
+insert into exam_section values(01, "rohan", 'A', 1);
+insert into exam_section values(02, "mohan", 'B', 1);
+insert into exam_section values(03, "anish", 'C', 2);
+insert into exam_section values(04, "rahul", 'D', 3);
+
+Table hostel -->
+
+create table hostel(hostel_id int primary key, name varchar(40), roomno int, sharing char);
+insert into hostel values(01, "ronny", 1, 'Y');
+insert into hostel values(02, "rajesh", 2, 'N');
+insert into hostel values(03, "mukesh", 3, 'N');
+insert into hostel values(04, "adani", 1, 'Y');
