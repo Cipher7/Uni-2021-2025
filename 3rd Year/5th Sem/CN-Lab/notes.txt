@@ -1,0 +1,10 @@
+#NAM install 
+
+# version 1.15 does not work! use 1.14
+
+Link --> technobytz.com/wp-content/uploads/2015/11/nam_1.14_amd64.zip
+
+# .nam = Network Animation File
+# .tcl = Tool command language
+# .tr  = Trace file
+# CBR = constant bitrate
