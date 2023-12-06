@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Program 2</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog2">
+        <div ng-controller="displayList">
+            <h2>Shopping List</h2>
+            <ul>
+                <li>bread</li>
+                <li>apple</li>
+                <li>juice</li>
+            </ul>
+            Add an item : <input type="text"> 
+            <button>add item</button><br />
+            Remove an Item : <Select><option>test</option><option>prog2</option></Select>
+            <button>remove item</button>
+        </div>
+    </body>
+</html>
+
+<script>
+    var c1 = angular.module("Prog1", []);
+    c1.controller("displayFullName", function($scope){
+        $scope.fn = "Rohan";
+        $scope.ln = "N K";
+    });
+</script>
