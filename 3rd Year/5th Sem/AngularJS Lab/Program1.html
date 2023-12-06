@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Program 1</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog1">
+        <div ng-controller="displayFullName">
+            <h2>Display full name</h2>
+            First name : <input type="text" ng-model="fn"><br /><br />
+            Last name : <input type="text" ng-model="ln"><br /><br />
+            My full name is {{fn + " " + ln}}
+        </div>
+    </body>
+</html>
+
+<script>
+    var c1 = angular.module("Prog1", []);
+    c1.controller("displayFullName", function($scope){
+        $scope.fn = "Rohan";
+        $scope.ln = "N K";
+    });
+</script>
