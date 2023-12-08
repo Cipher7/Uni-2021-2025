@@ -39,3 +39,15 @@ insert into MOVIES values(302, "KGF", 2004, "Kannada", 202);
 insert into MOVIES values(303, "Kravat", 2009, "Russian", 204);
 insert into MOVIES values(304, "Avengers", 2011, "English", 202);
 insert into MOVIES values(305, "PK", 2019, "Hindi", 203);
+
+insert into MOVIE_CAST values(101, 301, "Lead");
+insert into MOVIE_CAST values(103, 302, "Assistant");
+insert into MOVIE_CAST values(102, 303, "Banker");
+insert into MOVIE_CAST values(105, 304, "Soldier");
+insert into MOVIE_CAST values(104, 305, "King");
+
+insert into RATING values(301, 3);
+insert into RATING values(302, 2);
+insert into RATING values(303, 4);
+insert into RATING values(304, 5);
+insert into RATING values(305, 1);
