@@ -7,6 +7,8 @@ CREATE DATABASE movie_cs151;
 
 use movie_cs151;
 
+// Creating tables
+
 create table ACTOR(Act_id int primary key, Act_Name varchar(40), Act_gender char);
 
 create table DIRECTOR(Dir_id int primary key, Dir_Name varchar(40), Dir_phone int(10));
@@ -16,3 +18,24 @@ create table MOVIES(Mov_id int primary key, Mov_Title varchar(40), Movie_Year in
 create table MOVIE_CAST(Act_id int, Mov_id int, Role varchar(40), primary key (Act_id, Mov_id), foreign key(Act_id) references ACTOR(Act_id), foreign key(Mov_id) references MOVIES(Mov_id));
 
 create table RATING(Mov_id int, Rev_stars int, primary key(Mov_id), foreign key(Mov_id) references MOVIES(Mov_id));
+
+
+// Inserting values
+
+insert into ACTOR values(101, "John Abraham", 'M');
+insert into ACTOR values(102, "John Mohan", 'M');
+insert into ACTOR values(103, "Deepika", 'F');
+insert into ACTOR values(104, "Anushka", 'F');
+insert into ACTOR values(105, "Disha", 'F');
+
+insert into DIRECTOR values(201, "Hitchcock", 908627187);
+insert into DIRECTOR values(202, "Steven Spielberg", 908653287);
+insert into DIRECTOR values(203, "Hitchcock", 908847987);
+insert into DIRECTOR values(204, "Martin", 956827187);
+insert into DIRECTOR values(205, "Nolan", 9186547187);
+
+insert into MOVIES values(301, "Bambi", 2001, "English", 201);
+insert into MOVIES values(302, "KGF", 2004, "Kannada", 202);
+insert into MOVIES values(303, "Kravat", 2009, "Russian", 204);
+insert into MOVIES values(304, "Avengers", 2011, "English", 202);
+insert into MOVIES values(305, "PK", 2019, "Hindi", 203);
