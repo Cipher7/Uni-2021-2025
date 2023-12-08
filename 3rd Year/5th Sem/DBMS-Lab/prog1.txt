@@ -1,5 +1,10 @@
+/*
+QUESTION 1
+*/
+
 
 CREATE DATABASE movie_cs151;
+
 use movie_cs151;
 
 create table ACTOR(Act_id int primary key, Act_Name varchar(40), Act_gender char);
