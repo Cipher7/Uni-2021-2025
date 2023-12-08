@@ -1,0 +1,13 @@
+
+CREATE DATABASE movie_cs151;
+use movie_cs151;
+
+create table ACTOR(Act_id int primary key, Act_Name varchar(40), Act_gender char);
+
+create table DIRECTOR(Dir_id int primary key, Dir_Name varchar(40), Dir_phone int(10));
+
+create table MOVIES(Mov_id int primary key, Mov_Title varchar(40), Movie_Year int(4), Movie_Lang varchar(40) , Dir_id int, foreign key (Dir_id) references DIRECTOR(Dir_id));
+
+create table MOVIE_CAST(Act_id int, Mov_id int, Role varchar(40), primary key (Act_id, Mov_id), foreign key(Act_id) references ACTOR(Act_id), foreign key(Mov_id) references MOVIES(Mov_id));
+
+create table RATING(Mov_id int, Rev_stars int, primary key(Mov_id), foreign key(Mov_id) references MOVIES(Mov_id));
