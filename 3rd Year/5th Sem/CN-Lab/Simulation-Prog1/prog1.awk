@@ -6,5 +6,5 @@ BEGIN {c=0;}
 		printf("%s %s\n", $5, $11);
 	}
 }
-	END { printf("The number of packers dropped are = %d\n", c);}
+END { printf("The number of packers dropped are = %d\n", c);}
 
