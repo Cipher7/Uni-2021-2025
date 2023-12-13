@@ -49,7 +49,7 @@
 
         $scope.delete_item = function()
         {
-            if ($scope.shoplist.indexOf($scope.select_name) == -1)
+            if ($scope.shoplist.indexOf($scope.select_item) == -1)
             {
                 alert("Please select an  item to delete");
                 document.getElementById("sel_item").focus();
@@ -57,7 +57,7 @@
             }
             else
             {
-                $dx = $scope.shoplist.indexOf($scope.select_name)
+                $dx = $scope.shoplist.indexOf($scope.select_item)
                 $scope.shoplist.splice($dx,1)
                 $scope.select_name = ""
             }
