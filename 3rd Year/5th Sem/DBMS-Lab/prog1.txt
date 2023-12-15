@@ -64,4 +64,4 @@ insert into RATING values(305, 1);
 2->  select distinct m.Mov_Title, c.Act_id from MOVIES m, MOVIE_CAST c,ACTOR a WHERE m.Mov_id=c.Mov_id AND c.Act_id in(SELECT c.Act_id FROM MOVIE_CAST c GROUP BY(c.Act_id) HAVING count(c.Mov_id) >= 2);
 3->  select * from(select a.Act_Name from ACTOR a, MOVIES m,MOVIE_CAST mc where a.Act_id=mc.Act_id and mc.Mov_id AND m.Movie_Year < 2000) T1 NATURAL JOIN (select a.Act_name from ACTOR a,MOVIES m,MOVIE_CAST mc where a.Act_id=mc.Act_id and mc.Mov_id=m.Mov_id and m.Movie_Year > 2015) T2;
 4->  select m.Mov_Title,max(Rev_stars) as "max_stars" from MOVIES m,RATING r,MOVIE_CAST mc where m.Mov_id=r.Mov_id and mc.Mov_id and r.Rev_stars > 0 order by Mov_Title;
-5->  
+5->  update RATING set Rev_stars=5 where Mov_id in (select Mov_id from MOVIES m,DIRECTOR d where d.Dir_id=m.Dir_id AND Dir_Name="Steven Spielberg"); 
