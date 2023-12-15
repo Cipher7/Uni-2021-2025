@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Program 2</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog2">
+        <div ng-controller="displayList">
+            <h2>Shopping List</h2>
+            <ol>
+                <li ng-repeat="list in shoplist">{{list}}</li>
+            </ol>
+            Add an item : <input type="text" id="item" ng-model="item_name"> &nbsp; &nbsp;
+            <input type="button" value="add" ng-click="add_item()"> <br /> <br />
+            Remove an Item :
+            <select id="sel_item" ng-model="select_item" ng-options="list for list in shoplist"></select> &nbsp;&nbsp;
+            <input type="button" value="delete" ng-click="delete_item()"> <br /> <br />
+        </div>
+    </body>
+</html>
+
+<script>
+    var c1 = angular.module("Prog2", []);
+    c1.controller("displayList", function($scope){
+        $scope.shoplist = ["Chocos"];
+        
+        $scope.add_item = function()
+        {
+            if ($scope.item_name && $scope.shoplist.indexOf($scope.item_name) == -1)
+            {
+                $scope.shoplist.push($scope.item_name)
+                $scope.item_name = ""
+            }
+            else
+            {
+                if($scope.item_name)
+                {
+                    alert("Item already present in the list");
+                    document.getElementById("item").focus();
+                    $scope.item_name = ""
+                }
+                else
+                {
+                    alert("Enter an item to add to the list");
+                    document.getElementById("item").focus();
+                }
+                return false;
+            }
+        }
+
+        $scope.delete_item = function()
+        {
+            if ($scope.shoplist.indexOf($scope.select_item) == -1)
+            {
+                alert("Please select an  item to delete");
+                document.getElementById("sel_item").focus();
+                return false
+            }
+            else
+            {
+                $dx = $scope.shoplist.indexOf($scope.select_item)
+                $scope.shoplist.splice($dx,1)
+                $scope.select_name = ""
+            }
+        }
+    });
+</script>
