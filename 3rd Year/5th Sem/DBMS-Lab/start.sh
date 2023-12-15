@@ -18,4 +18,4 @@ sudo /opt/lampp/manager-linux-x64.run &
 
 read -rsn1 key
 # Start the mysql server
-sudo /opt/lampp/bin/mysql -u root -D college4
+sudo /opt/lampp/bin/mysql -u root

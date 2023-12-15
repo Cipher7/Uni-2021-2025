@@ -39,6 +39,7 @@ insert into MOVIES values(302, "KGF", 2004, "Kannada", 202);
 insert into MOVIES values(303, "Kravat", 2009, "Russian", 204);
 insert into MOVIES values(304, "Avengers", 2011, "English", 202);
 insert into MOVIES values(305, "PK", 2019, "Hindi", 203);
+insert into MOVIES values(306, "Dangal", 1990, "Hindi", 202);
 
 insert into MOVIE_CAST values(101, 301, "Lead");
 insert into MOVIE_CAST values(103, 302, "Assistant");
@@ -48,6 +49,7 @@ insert into MOVIE_CAST values(104, 305, "King");
 insert into MOVIE_CAST values(102, 304, "Chef");
 insert into MOVIE_CAST values(101, 302, "Chef");
 insert into MOVIE_CAST values(101, 303, "Assistant");
+insert into MOVIE_CAST values(101, 306, "Fighter");
 
 insert into RATING values(301, 3);
 insert into RATING values(302, 2);
@@ -60,4 +62,6 @@ insert into RATING values(305, 1);
 
 1->  select Mov_Title from MOVIES m,DIRECTOR d WHERE m.Dir_id=d.Dir_id AND Dir_Name='Hitchcock';  
 2->  select distinct m.Mov_Title, c.Act_id from MOVIES m, MOVIE_CAST c,ACTOR a WHERE m.Mov_id=c.Mov_id AND c.Act_id in(SELECT c.Act_id FROM MOVIE_CAST c GROUP BY(c.Act_id) HAVING count(c.Mov_id) >= 2);
-3->  
+3->  select * from(select a.Act_Name from ACTOR a, MOVIES m,MOVIE_CAST mc where a.Act_id=mc.Act_id and mc.Mov_id AND m.Movie_Year < 2000) T1 NATURAL JOIN (select a.Act_name from ACTOR a,MOVIES m,MOVIE_CAST mc where a.Act_id=mc.Act_id and mc.Mov_id=m.Mov_id and m.Movie_Year > 2015) T2;
+4->  select m.Mov_Title,max(Rev_stars) as "max_stars" from MOVIES m,RATING r,MOVIE_CAST mc where m.Mov_id=r.Mov_id and mc.Mov_id and r.Rev_stars > 0 order by Mov_Title;
+5->  
