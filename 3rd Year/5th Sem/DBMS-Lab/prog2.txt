@@ -1,0 +1,21 @@
+/*
+Question 2
+*/
+
+create database order_cs151;
+
+use order_cs151;
+
+
+// Table creation
+
+create table SALESMAN(Salesman_id int primary key, Name varchar(50), City varchar(50), Commission varchar(4));
+create table CUSTOMER(Customer_id int primary key, Cust_Name varchar(50), City varchar(50), Grade int, Salesman_id int, foreign key(Salesman_id) references SALESMAN(Salesman_id) on delete set null);
+create table ORDERS(Ord_No int primary key, Purchase_Amt int, Ord_Date date, Customer_id int, Salesman_id int, foreign key(Salesman_id) references SALESMAN(Salesman_id) on delete cascade, foreign key(Customer_id) references CUSTOMER(Customer_id) on delete cascade);
+
+//Inserting values
+insert into SALESMAN values(1000, "Rahul", "Bangalore", "20%");
+insert into SALESMAN values(2000, "Ankita", "Bangalore", "25%");
+insert into SALESMAN values(3000, "Sharma", "Mysore", "30%");
+insert into SALESMAN values(4000, "Anjali", "Delhi", "15%");
+insert into SALESMAN values(5000, "Raj", "Hyderabad", "15%");
