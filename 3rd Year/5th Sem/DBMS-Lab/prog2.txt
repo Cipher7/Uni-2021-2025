@@ -19,3 +19,11 @@ insert into SALESMAN values(2000, "Ankita", "Bangalore", "25%");
 insert into SALESMAN values(3000, "Sharma", "Mysore", "30%");
 insert into SALESMAN values(4000, "Anjali", "Delhi", "15%");
 insert into SALESMAN values(5000, "Raj", "Hyderabad", "15%");
+
+insert into CUSTOMER values(1, "Adya", "Bangalore", 100, 1000);
+insert into CUSTOMER values(2, "Banu", "Mangalore", 300, 1000);
+insert into CUSTOMER values(3, "Chethan", "Chennai", 400, 2000);
+insert into CUSTOMER values(4, "Danish", "Bangalore", 200, 2000);
+insert into CUSTOMER values(5, "Esha", "Bangalore", 400, 3000);
+
+
