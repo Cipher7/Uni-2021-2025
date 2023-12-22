@@ -26,4 +26,8 @@ insert into CUSTOMER values(3, "Chethan", "Chennai", 400, 2000);
 insert into CUSTOMER values(4, "Danish", "Bangalore", 200, 2000);
 insert into CUSTOMER values(5, "Esha", "Bangalore", 400, 3000);
 
-
+insert into ORDERS values(201, 5000, "2020-06-02", 1, 1000);
+insert into ORDERS values(202, 450, "2020-04-09", 1, 2000);
+insert into ORDERS values(203, 1000, "2020-03-15", 3, 2000);
+insert into ORDERS values(204, 3500, "2020-07-09", 4, 3000);
+insert into ORDERS values(205, 550, "2020-05-05", 2, 2000);
