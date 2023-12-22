@@ -11,7 +11,7 @@ use order_cs151;
 
 create table SALESMAN(Salesman_id int primary key, Name varchar(50), City varchar(50), Commission varchar(4));
 create table CUSTOMER(Customer_id int primary key, Cust_Name varchar(50), City varchar(50), Grade int, Salesman_id int, foreign key(Salesman_id) references SALESMAN(Salesman_id) on delete set null);
-create table ORDERS(Ord_No int primary key, Purchase_Amt int, Ord_Date date, Customer_id int, Salesman_id int, foreign key(Salesman_id) references SALESMAN(Salesman_id) on delete cascade, foreign key(Customer_id) references CUSTOMER(Customer_id) on delete cascade);
+create table ORDERS(Ord_No int, Purchase_Amt int, Ord_Date date, Customer_id int, Salesman_id int, foreign key(Salesman_id) references SALESMAN(Salesman_id) on delete cascade, foreign key(Customer_id) references CUSTOMER(Customer_id) on delete cascade, primary key(Customer_id, Salesman_id));
 
 //Inserting values
 insert into SALESMAN values(1000, "Rahul", "Bangalore", "20%");
