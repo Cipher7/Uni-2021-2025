@@ -18,8 +18,7 @@ $ns duplex-link $n3 $n4 200Mb 1ms DropTail
 $ns duplex-link $n4 $n5 1Mb 1ms DropTail
 
 set p1 [new Agent/Ping]
-$ns attach-agent $n0 $p
-1
+$ns attach-agent $n0 $p1
 $p1 set packetSize_ 50000
 $p1 set interval_ 0.0001
 
