@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Program 4</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog4">
+        <div ng-controller="evaluate">
+            <h2>Factorial and square</h2>
+            <input placeholder="Enter number" type="number" ng-model="num"><br /> <br />
+            <input type="button" value="calculate" ng-click="calc()">
+            <p>Factorial : {{fact}}</p>
+            <p>Square : {{square}}</p>
+        </div>
+    </body>
+</html>
+
+<script>
+    var c1 = angular.module("Prog4", []);
+    c1.controller("evaluate", function($scope){
+        $scope.fact = "";
+        $scope.square = "";
+        $scope.calc = function() {
+        $scope.square = $scope.num * $scope.num
+        if($scope.num < 0)
+        {
+            $scope.fact = "undefined"
+        }
+        else
+        {
+            f=1
+            for(var i=1;i<=$scope.num;i++)
+            {
+                f *= i
+            }
+        $scope.fact = f
+        }
+        }
+    });
+</script>
