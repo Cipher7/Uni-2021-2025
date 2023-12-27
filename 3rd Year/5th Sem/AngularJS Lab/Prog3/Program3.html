@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Program 3</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog3">
+        <div ng-controller="evaluate">
+            <h2>Simple Caclulator</h2>
+            <input placeholder="Enter first number" type="number" ng-model="num1"><br /> <br />
+            <input placeholder="Enter second number" type="number" ng-model="num2"> <br /> <br />
+            Symbol : 
+            <select ng-model="symbol" id="sym"><option>+</option><option>-</option><option>/</option><option>*</option></select><br /> <br />
+            <input type="button" value="calculate" ng-click="calc()">
+            <p>{{expression}}</p>
+        </div>
+    </body>
+</html>
+
+<script>
+    var c1 = angular.module("Prog3", []);
+    c1.controller("evaluate", function($scope){
+        $scope.expression = "0";
+        $scope.calc = function() {
+            $scope.expression = $scope.num1 + $scope.symbol + $scope.num2 + " = " + eval($scope.num1 + $scope.symbol + $scope.num2)
+        }
+    });
+</script>
