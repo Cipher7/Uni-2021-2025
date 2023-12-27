@@ -21,7 +21,7 @@
     c1.controller("evaluate", function($scope){
         $scope.expression = "0";
         $scope.calc = function() {
-            $scope.expression = $scope.num1 + $scope.symbol + $scope.num2 + " = " + eval($scope.num1 + $scope.symbol + $scope.num2)
+            $scope.expression = $scope.num1 + $scope.symbol + $scope.num2 + " = " + eval($scope.num1 + $scope.symbol + $scope.num2).toFixed(2)
         }
     });
 </script>
