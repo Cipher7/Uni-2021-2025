@@ -21,7 +21,7 @@
         $scope.square = "";
         $scope.calc = function() {
         $scope.square = $scope.num * $scope.num
-        if($scope.num < 0)
+        if($scope.num < 0 || $scope.num.includes("."))
         {
             $scope.fact = "undefined"
         }
