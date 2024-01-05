@@ -37,5 +37,5 @@ insert into ORDERS values(205, 550, "2020-05-05", 2, 2000);
 1-> select count(*) from CUSTOMER where Grade > (select avg(Grade) from CUSTOMER where City="Bangalore");
 2-> select Salesman_id,Name from SALESMAN where Salesman_id in(select Salesman_id from CUSTOMER group by Salesman_id having count(Customer_id) > 1); 
 3-> (select distinct S.Salesman_id,S.Name,C.Cust_Name from CUSTOMER C, SALESMAN S where C.Salesman_id=S.Salesman_id and C.City=S.City) UNION (select distinct S.Salesman_id,S.Name,C.Cust_Name from CUSTOMER C, SALESMAN S where C.Salesman_id=S.Salesman_id and C.City!=S.City) UNION (select distinct S.Salesman_id,S.Name,"NO CUSTOMER" from SALESMAN S where Salesman_id NOT IN(select Salesman_id from CUSTOMER)); 
-4-> 
-5-> 
+4-> Create view Highest_Order AS (select Salesman_id,Purchase_Amt,Ord_Date from ORDERS where (Ord_Date,Purchase_Amt) IN (select Ord_Date,max(Purchase_Amt) from ORDERS group by Ord_Date)); 
+5-> delete from SALESMAN where Salesman_id = 1000; 
