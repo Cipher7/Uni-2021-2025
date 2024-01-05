@@ -14,6 +14,7 @@ create table EMPLOYEE(SSN varchar(40) primary key, Address varchar(50),Sex char,
 create table DLOCATION(DNo int, DLoc varchar(50), primary key(DNo,DLoc),foreign key(DNo) references DEPARTMENT(DNo));
 create table PROJECT(PNo int primary key, PName varchar(50),PLocation varchar(50),DNo int,foreign key(DNo) references DEPARTMENT(DNo));
 create table WORKS_ON(SSN varchar(40),PNo int,Hours int,foreign key(SSN) references EMPLOYEE(SSN), foreign key(PNo) references PROJECT(PNo));
+alter table DEPARTMENT add foreign key(MgrSSN) references EMPLOYEE(SSN);
 
 //Inserting values
 
