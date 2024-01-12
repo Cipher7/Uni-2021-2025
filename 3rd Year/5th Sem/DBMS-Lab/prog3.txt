@@ -103,6 +103,6 @@ insert into WORKS_ON values (1005, 18, 45);
 
 1-> (select Pno from PROJECT P, DEPARTMENT D, EMPLOYEE E where P.Dno=D.Dno and E.SSN=D.MgrSSN and E.Name = 'Scott') UNION (select Pno from EMPLOYEE E, WORKS_ON W where E.SSN=W.SSN and E.Name like "%Scott");
 2-> select E.SSN, Salary*1.1 from EMPLOYEE E, WORKS_ON W,PROJECT P where E.SSN=W.SSN and W.PNo=P.PNo and PName = 'IOT';
-3-> select DName, MAX(Salary), MIN(Salary), AVG(Salary) from EMPLOYEE E, DEPARTMENT D where E.Dno=D.Dno group by D.DName HAVING D.DName='Accounts'; 
+3-> select DName, MAX(Salary), MIN(Salary), AVG(Salary), SUM(Salary) from EMPLOYEE E, DEPARTMENT D where E.Dno=D.Dno group by D.DName HAVING D.DName='Accounts'; 
 4-> select E.Name from EMPLOYEE E where NOT EXISTS (select PNo from PROJECT where DNo=5 and PNo in (select PNo from WORKS_ON W where W.SSN=E.SSN));
 5-> select DNo, count(SSN) from EMPLOYEE where Salary>600000 and DNo in (select DNo from EMPLOYEE group by DNo having count(SSN)>5) group by DNo; 
