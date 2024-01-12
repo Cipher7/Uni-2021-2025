@@ -30,6 +30,13 @@ insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1009, "Claire", "J
 insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1010, "Jack", "Jayanagar", "M", 6370010);
 insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1011, "Jack", "Jayanagar", "M", 6378236);
 insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1012, "Timmy", "Jayanagar", "M", 637000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1013, "Jill", "Jayanagar", "F", 637000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1014, "Joshy", "Jayanagar", "M", 637000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1015, "Jimy", "Jayanagar", "M", 637000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1016, "Katey", "Jayanagar", "F", 637000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1017, "Joseph", "Jayanagar", "M", 637000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1018, "Jaya", "Jayanagar", "M", 50000);
+insert into EMPLOYEE(SSN, Name, Address, Sex, Salary) values (1019, "Clair", "Jayanagar", "F", 50000);
 
 insert into DEPARTMENT values (1, "Accounts", 1001, "2017-02-12");
 insert into DEPARTMENT values (2, "Finance", 1003, "2017-02-10");
@@ -52,6 +59,13 @@ update EMPLOYEE set SuperSSN=1006, DNo=6 where SSN=1009;
 update EMPLOYEE set SuperSSN=1005, DNo=1 where SSN=1010;
 update EMPLOYEE set SuperSSN=1002, DNo=1 where SSN=1011;
 update EMPLOYEE set SuperSSN=1001, DNo=1 where SSN=1012;
+update EMPLOYEE set SuperSSN=1001, DNo=1 where SSN=1013;
+update EMPLOYEE set SuperSSN=1002, DNo=1 where SSN=1014;
+update EMPLOYEE set SuperSSN=1001, DNo=1 where SSN=1015;
+update EMPLOYEE set SuperSSN=1001, DNo=1 where SSN=1016;
+update EMPLOYEE set SuperSSN=1001, DNo=5 where SSN=1017;
+update EMPLOYEE set SuperSSN=1003, DNo=5 where SSN=1018;
+update EMPLOYEE set SuperSSN=1006, DNo=5 where SSN=1019;
 
 insert into DLOCATION values (1, "Bangalore");
 insert into DLOCATION values (1, "Mumbai");
