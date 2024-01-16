@@ -21,7 +21,29 @@
     c1.controller("evaluate", function($scope){
         $scope.expression = "";
         $scope.calc = function() {
-            $scope.expression = $scope.num1 + $scope.symbol + $scope.num2 + " = " + eval($scope.num1 + $scope.symbol + $scope.num2).toFixed(2)
+            if($scope.num1 && $scope.num2 && $scope.symbol != null)
+            {
+                $scope.expression = $scope.num1 + $scope.symbol + $scope.num2 + " = " + eval($scope.num1 + $scope.symbol + $scope.num2).toFixed(2)
+            }
+            else
+            {
+                if($scope.symbol == null)
+                {
+                    alert("Please select a symbol")
+                }
+                else if(!$scope.num1)
+                {
+                    alert("Please enter first number")
+                }
+                else
+                {
+                    alert("Please enter second number")
+                }
+            }
+            if($scope.num2 == 0 && $scope.symbol == '/')
+            {
+                alert("Divide by 0 error")
+            }
         }
     });
 </script>
