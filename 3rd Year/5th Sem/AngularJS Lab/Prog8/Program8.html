@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Program 8</title>
+        <link rel="stylesheet" href="Program8.css">
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog8">
+        <div ng-controller="validate">
+            <h2>Login form</h2>
+            <form name="loginForm">
+                Enter username : <input type="text" ng-model="username" name="user" ng-minlength="5" ng-maxlength="8" required>
+                <span class="error-message" ng-show="loginForm.user.$error.required && loginForm.user.$dirty">Username is required</span>
+                <span class="error-message" ng-show="loginForm.user.$error.minlength">Username should have minimum 5 characters</span>
+                <span class="error-message" ng-show="loginForm.user.$error.maxlength">Username should have maximum 8 characters</span><br/>
+                Enter password : <input type="text" ng-model="password" name="pass" ng-minlength="5" ng-maxlength="8" required>
+                <span class="error-message" ng-show="loginForm.pass.$error.minlength">Password should have minimum 5 characters</span>
+                <span class="error-message" ng-show="loginForm.pass.$error.maxlength">Password should have maximum 8 characters</span>
+                <input type="button" value="Login" ng-disabled="loginForm.$invalid" ng-click="login()">
+            </form>
+        </div>
+    </body>
+</html>
+<script>
+    var c1 = angular.module("Prog8",[]);
+    c1.controller("validate",function($scope){
+        $scope.username = ""
+        $scope.password = ""
+        $scope.attempts = 0
+
+        $scope.login = function(){
+            if($scope.username.toLowerCase() == "test123" && $scope.password == "test123"){
+                alert("Logged in successfully!");
+            }
+
+            else
+            {
+                $scope.attempts++;
+                if($scope.attempts <= 3)
+                {
+                    alert("Incorrect login credentials!!! Attempt number " + $scope.attempts);
+                }
+                else
+                {
+                    document.getElementById("loginButton").disabled = true
+                }
+            }
+        }
+
+    });
+</script>

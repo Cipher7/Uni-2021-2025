@@ -12,10 +12,10 @@
             <ul>
                 <li ng-repeat="user in users">
                     <span ng-show="!user.EDITING">{{user.name}}</span>
-                    <input ng-show="user.EDITING" ng-model="user.name" id="edit_name">&emsp;
+                    <input ng-show="user.EDITING" ng-model="user.name">&emsp;
                     
                     <span ng-show="!user.EDITING">{{user.email}}</span>
-                    <input ng-show="user.EDITING" ng-model="user.email" id="edit_email">&emsp;&emsp;
+                    <input ng-show="user.EDITING" ng-model="user.email">&emsp;&emsp;
 
                     <input type="button" value="Read" ng-click="view(user)">&emsp;
                     <input type="button" value="Update" ng-click="update(user)">&emsp;
