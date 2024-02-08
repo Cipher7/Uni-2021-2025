@@ -1,0 +1,65 @@
+<html>
+    <head>    
+        <title>Program 10</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog10">
+        <h1>Item Management</h1>
+        <div ng-controller="manage">
+            <input placeholder="Enter an item to be added" id="it" ng-model="items">&emsp;
+            <input type="button" value="ADD" ng-click="additems()"><br><br>
+            <h3>List of items::</h3>
+            <table border="1">
+                <tr>
+                    <th>SN no</th>
+                    <th>Items</th>
+                    <th>Action</th>
+                </tr>
+                <tr ng-repeat="i in itemlist">
+                    <td>{{$index+1}}</td>
+                    <td>{{i}}</td>
+                    <td><input type="button" value="REMOVE" ng-click="removeitems(i)"</td>
+                </tr>
+            </table>
+            <br>
+            Total number of items::{{itemlist.length}}
+        </div>
+    </body>
+    <script>
+        var ajs = angular.module("Prog10",[]);
+        ajs.controller("manage",function($scope)
+        {
+            $scope.itemlist=["Marker","Eraser"];
+            $scope.additems = function()
+            {
+                if($scope.items && $scope.itemlist.indexOf($scope.items)==-1)
+                {
+                    $scope.itemlist.push($scope.items);
+                    $scope.items="";
+                }
+                else{
+                    if($scope.items)
+                    {
+                        alert("Item already exists!");
+                        document.getElementById("it").focus();
+                        return false;
+                    }
+                    else{
+                        alert("Enter an element to be added...")
+                        document.getElementById("it").focus();
+                        return false;
+                    }
+                }
+            }
+            $scope.removeitems=function(item)
+            {
+                var pakka=confirm("Do you really want to delete this item?");
+                if(pakka)
+                {
+                    ind=$scope.itemlist.indexOf(item);
+                    $scope.itemlist.splice(ind,1);
+                }
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <head>    
+        <title>Program 9</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="Prog9">
+        <h1>Search Employees by Name or Salary</h1>
+        <div ng-controller="search">
+            Enter the name:: <input ng-model="name">&emsp;
+            Enter the salary:: <input ng-model="salary">&emsp;
+            <input type="button" value="Clear Filters" ng-click="filters()">
+            <br>
+            <h3>List of Employees:</h3>
+            <table border="1">
+                <tr>
+                    <th>Sn no</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                </tr>
+                <tr ng-repeat="ppl in employee | filter:{N:name,S:salary}">
+                    <td>{{$index+1}}</td>
+                    <td>{{ppl.N}}</td>
+                    <td>{{ppl.S}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var a=angular.module("Prog9",[]);
+            a.controller("search",function($scope) 
+            {
+                $scope.employee=[
+                    {"N":"Rohan","S":98000},
+                    {"N":"Kanishk","S":80000},
+                    {"N":"Vinayak","S":56000},
+                    {"N":"Meghana","S":43000},
+                    {"N":"varshini","S":21000},
+                    {"N":"anish","S":76000},
+                    {"N":"vis","S":69000},
+                    {"N":"prerana","S":65000},
+                    {"N":"Leo","S":76000}
+                ];
+
+            $scope.filters = function()
+            {
+                $scope.name="";
+                $scope.salary="";
+            }
+        });
+    </script>
+    </body>
+</html>
