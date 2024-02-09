@@ -64,8 +64,10 @@ insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi16cs109'
 
 // Executing statements
 
-
-
-
+1-> 
+2->
+3->
+4->
+5->
 
 

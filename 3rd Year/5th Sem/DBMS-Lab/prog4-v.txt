@@ -1,0 +1,243 @@
+cs151@csel5sys08-OptiPlex-3090:~/Uni-2021-2025/3rd Year/5th Sem/DBMS-Lab$ sudo /opt/lampp/bin/mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.28-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database college_cs151;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use college_cs151;
+Database changed
+MariaDB [college_cs151]> create table STUDENT(USN varchar(255) primary key,SName varchar(255),Address varchar(255),Phone int(11),Gender char);
+Query OK, 0 rows affected (0.085 sec)
+
+MariaDB [college_cs151]> create table SEMSEC(SSID int primary key,Sem int,Sec char);
+Query OK, 0 rows affected (0.092 sec)
+
+MariaDB [college_cs151]> create table CLASS(USN varchar(255) primary key,SSID int, foreign key(USN) references STUDENT(USN), foreign key(SSID) references SEMSEC(SSID));
+Query OK, 0 rows affected (0.089 sec)
+
+MariaDB [college_cs151]> create table COURSE(Subcode varchar(255) primary key, Title varchar(255),Sem int, Credits int, foreign key(Sem) references SEMSEC(Sem));
+ERROR 1005 (HY000): Can't create table `college_cs151`.`COURSE` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [college_cs151]> create table COURSE(Subcode varchar(255) primary key, Title varchar(255),Sem int, Credits int);
+Query OK, 0 rows affected (0.088 sec)
+
+MariaDB [college_cs151]> create table IAMARKS(USN varchar(255),Subcode varchar(255),SSID int, test1 int, test2 int, test3 int, finalia int, primary key(USN,Subcode,SSID),foreign key(USN) references STUDENT(USN), foreign key(SSID) references SEMSEC(SSID), foreign key(Subcode) references COURSE(Subcode));
+Query OK, 0 rows affected (0.098 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi14cs101','Danny','555 itpl', 9874563214,'M');
+ERROR 1264 (22003): Out of range value for column 'Phone' at row 1
+MariaDB [college_cs151]> insert into STUDENT values('1bi14cs101','Danny','555 itpl', 987456321,'M');
+Query OK, 1 row affected (0.073 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi14cs102','Stanley','594 marathahalli', 987456321,'M');
+Query OK, 1 row affected (0.076 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi15cs101','John','44 whitefield', 987456321,'M');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi15cs102','Grace','33 jp nagar', 987456321,'F');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi15cs103','Claire','94 jayanagar', 987456321,'F');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi15cs104','Miller','4 whitefield', 987456321,'M');
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi15cs105','Kate','3 jp nagar', 987456321,'F');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi15cs106','Jade','9 jayanagar', 987456321,'F');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi16cs109','Gloria','11 beml layout', 987456321,'F');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into STUDENT values('1bi16cs110','Jack','54 aecs layout', 987456321,'M');
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(101,2,'A');
+Query OK, 1 row affected (0.078 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(102,4,'B');
+Query OK, 1 row affected (0.070 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(103,6,'C');
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(104,8,'A');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(105,2,'B');
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(106,8,'B');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(107,8,'C');
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(108,4,'C');
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(109,4,'C');
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into SEMSEC values(110,4,'C');
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi14cs101',106);
+Query OK, 1 row affected (0.076 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi14cs102',107);
+Query OK, 1 row affected (0.071 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi15cs101',103);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi15cs102',101);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi15cs103',102);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi15cs104',108);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi15cs105',109);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi15cs106',110);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into CLASS values('1bi16cs109',104);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [college_cs151]> insert into COURSE values('13cs81','OAMD',8);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [college_cs151]> insert into COURSE values('13cs82','SA',8);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [college_cs151]> insert into COURSE values('14cs62','SS',6);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [college_cs151]> insert into COURSE values('15cs41','ST',4);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [college_cs151]> insert into COURSE values('15cs42','SE',4);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [college_cs151]> insert into COURSE values('16cs22','OS',2);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [college_cs151]> insert into COURSE values('13cs81','OAMD',8,6);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [college_cs151]> insert into COURSE values('13cs82','SA',8,2);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into COURSE values('14cs62','SS',6,4);
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [college_cs151]> insert into COURSE values('15cs41','ST',4,4);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into COURSE values('15cs42','SE',4,6);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [college_cs151]> insert into COURSE values('16cs22','OS',2,8);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi14cs101', '16cs22', 106, 6,5,10);
+Query OK, 1 row affected (0.070 sec)
+
+MariaDB [college_cs151]> insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi14cs102', '14cs62', 107, 14,15,16);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi15cs101', '15cs41', 104, 13,20,20);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [college_cs151]> insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi15cs101', '15cs42', 103, 18,20,20);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi15cs102', '15cs41', 101, 13,14,14);
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [college_cs151]> insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi16cs109', '13cs82', 102, 20,20,20);
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [college_cs151]> select * from STUDENT;
++------------+---------+------------------+-----------+--------+
+| USN        | SName   | Address          | Phone     | Gender |
++------------+---------+------------------+-----------+--------+
+| 1bi14cs101 | Danny   | 555 itpl         | 987456321 | M      |
+| 1bi14cs102 | Stanley | 594 marathahalli | 987456321 | M      |
+| 1bi15cs101 | John    | 44 whitefield    | 987456321 | M      |
+| 1bi15cs102 | Grace   | 33 jp nagar      | 987456321 | F      |
+| 1bi15cs103 | Claire  | 94 jayanagar     | 987456321 | F      |
+| 1bi15cs104 | Miller  | 4 whitefield     | 987456321 | M      |
+| 1bi15cs105 | Kate    | 3 jp nagar       | 987456321 | F      |
+| 1bi15cs106 | Jade    | 9 jayanagar      | 987456321 | F      |
+| 1bi16cs109 | Gloria  | 11 beml layout   | 987456321 | F      |
+| 1bi16cs110 | Jack    | 54 aecs layout   | 987456321 | M      |
++------------+---------+------------------+-----------+--------+
+10 rows in set (0.001 sec)
+
+MariaDB [college_cs151]> select * from SEMSEC;
++------+------+------+
+| SSID | Sem  | Sec  |
++------+------+------+
+|  101 |    2 | A    |
+|  102 |    4 | B    |
+|  103 |    6 | C    |
+|  104 |    8 | A    |
+|  105 |    2 | B    |
+|  106 |    8 | B    |
+|  107 |    8 | C    |
+|  108 |    4 | C    |
+|  109 |    4 | C    |
+|  110 |    4 | C    |
++------+------+------+
+10 rows in set (0.001 sec)
+
+MariaDB [college_cs151]> select * from CLASS;
++------------+------+
+| USN        | SSID |
++------------+------+
+| 1bi15cs102 |  101 |
+| 1bi15cs103 |  102 |
+| 1bi15cs101 |  103 |
+| 1bi16cs109 |  104 |
+| 1bi14cs101 |  106 |
+| 1bi14cs102 |  107 |
+| 1bi15cs104 |  108 |
+| 1bi15cs105 |  109 |
+| 1bi15cs106 |  110 |
++------------+------+
+9 rows in set (0.001 sec)
+
+MariaDB [college_cs151]> select * from COURSE;
++---------+-------+------+---------+
+| Subcode | Title | Sem  | Credits |
++---------+-------+------+---------+
+| 13cs81  | OAMD  |    8 |       6 |
+| 13cs82  | SA    |    8 |       2 |
+| 14cs62  | SS    |    6 |       4 |
+| 15cs41  | ST    |    4 |       4 |
+| 15cs42  | SE    |    4 |       6 |
+| 16cs22  | OS    |    2 |       8 |
++---------+-------+------+---------+
+6 rows in set (0.001 sec)
+
+MariaDB [college_cs151]> select * from IAMARKS;
++------------+---------+------+-------+-------+-------+---------+
+| USN        | Subcode | SSID | test1 | test2 | test3 | finalia |
++------------+---------+------+-------+-------+-------+---------+
+| 1bi14cs101 | 16cs22  |  106 |     6 |     5 |    10 |    NULL |
+| 1bi14cs102 | 14cs62  |  107 |    14 |    15 |    16 |    NULL |
+| 1bi15cs101 | 15cs41  |  104 |    13 |    20 |    20 |    NULL |
+| 1bi15cs101 | 15cs42  |  103 |    18 |    20 |    20 |    NULL |
+| 1bi15cs102 | 15cs41  |  101 |    13 |    14 |    14 |    NULL |
+| 1bi16cs109 | 13cs82  |  102 |    20 |    20 |    20 |    NULL |
++------------+---------+------+-------+-------+-------+---------+
+6 rows in set (0.001 sec)
