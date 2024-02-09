@@ -241,3 +241,41 @@ MariaDB [college_cs151]> select * from IAMARKS;
 | 1bi16cs109 | 13cs82  |  102 |    20 |    20 |    20 |    NULL |
 +------------+---------+------+-------+-------+-------+---------+
 6 rows in set (0.001 sec)
+
+MariaDB [college_cs151]> select S.* from STUDENT S, SEMSEC SS, CLASS C where S.USN=C.USN and SS.SSID=C.SSID and SS.Sem=4 and SS.Sec='C';
++------------+--------+--------------+-----------+--------+
+| USN        | SName  | Address      | Phone     | Gender |
++------------+--------+--------------+-----------+--------+
+| 1bi15cs104 | Miller | 4 whitefield | 987456321 | M      |
+| 1bi15cs105 | Kate   | 3 jp nagar   | 987456321 | F      |
+| 1bi15cs106 | Jade   | 9 jayanagar  | 987456321 | F      |
++------------+--------+--------------+-----------+--------+
+3 rows in set (0.035 sec)
+
+MariaDB [college_cs151]> select Sem,Sec,Gender,COUNT(Gender) from STUDENT NATURAL JOIN CLASS NATURAL JOIN SEMSEC group by Sem,Sec,Gender;
++------+------+--------+---------------+
+| Sem  | Sec  | Gender | COUNT(Gender) |
++------+------+--------+---------------+
+|    2 | A    | F      |             1 |
+|    4 | B    | F      |             1 |
+|    4 | C    | F      |             2 |
+|    4 | C    | M      |             1 |
+|    6 | C    | M      |             1 |
+|    8 | A    | F      |             1 |
+|    8 | B    | M      |             1 |
+|    8 | C    | M      |             1 |
++------+------+--------+---------------+
+8 rows in set (0.035 sec)
+
+MariaDB [college_cs151]> create view TEST1_1BI15CS101 as select USN,Subcode,test1 from IAMARKS where USN='1bi15cs101';
+Query OK, 0 rows affected (0.076 sec)
+
+MariaDB [college_cs151]> select * from TEST1_1BI15CS101;
++------------+---------+-------+
+| USN        | Subcode | test1 |
++------------+---------+-------+
+| 1bi15cs101 | 15cs41  |    13 |
+| 1bi15cs101 | 15cs42  |    18 |
++------------+---------+-------+
+2 rows in set (0.001 sec)
+
