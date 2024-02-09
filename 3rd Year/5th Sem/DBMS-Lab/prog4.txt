@@ -37,4 +37,35 @@ insert into SEMSEC values(108,4,'C');
 insert into SEMSEC values(109,4,'C');
 insert into SEMSEC values(110,4,'C');
 
+insert into CLASS values('1bi14cs101',106);
+insert into CLASS values('1bi14cs102',107);
+insert into CLASS values('1bi15cs101',103);
+insert into CLASS values('1bi15cs102',101);
+insert into CLASS values('1bi15cs103',102);
+insert into CLASS values('1bi15cs104',108);
+insert into CLASS values('1bi15cs105',109);
+insert into CLASS values('1bi15cs106',110);
+insert into CLASS values('1bi16cs109',104);
+
+insert into COURSE values('13cs81','OAMD',8,6);
+insert into COURSE values('13cs82','SA',8,2);
+insert into COURSE values('14cs62','SS',6,4);
+insert into COURSE values('15cs41','ST',4,4);
+insert into COURSE values('15cs42','SE',4,6);
+insert into COURSE values('16cs22','OS',2,8);
+
+insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi14cs101', '16cs22', 106, 6,5,10);
+insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi14cs102', '14cs62', 107, 14,15,16);
+insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi15cs101', '15cs41', 104, 13,20,20);
+insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi15cs101', '15cs42', 103, 18,20,20);
+insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi15cs102', '15cs41', 101, 13,14,14);
+insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi16cs109', '13cs82', 102, 20,20,20);
+
+
+// Executing statements
+
+
+
+
+
 
