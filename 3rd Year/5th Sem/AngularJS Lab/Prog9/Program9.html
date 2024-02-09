@@ -24,28 +24,28 @@
                 </tr>
             </table>
         </div>
-        <script>
-            var a=angular.module("Prog9",[]);
-            a.controller("search",function($scope) 
-            {
-                $scope.employee=[
-                    {"N":"Rohan","S":98000},
-                    {"N":"Kanishk","S":80000},
-                    {"N":"Vinayak","S":56000},
-                    {"N":"Meghana","S":43000},
-                    {"N":"varshini","S":21000},
-                    {"N":"anish","S":76000},
-                    {"N":"vis","S":69000},
-                    {"N":"prerana","S":65000},
-                    {"N":"Leo","S":76000}
-                ];
-
-            $scope.filters = function()
-            {
-                $scope.name="";
-                $scope.salary="";
-            }
-        });
-    </script>
     </body>
 </html>
+<script>
+    var a=angular.module("Prog9",[]);
+    a.controller("search",function($scope) 
+    {
+        $scope.employee=[
+            {"N":"Rohan","S":98000},
+            {"N":"Kanishk","S":80000},
+            {"N":"Vinayak","S":56000},
+            {"N":"Meghana","S":43000},
+            {"N":"varshini","S":21000},
+            {"N":"anish","S":76000},
+            {"N":"vis","S":69000},
+            {"N":"prerana","S":65000},
+            {"N":"Leo","S":76000}
+        ];
+
+    $scope.filters = function()
+    {
+        $scope.name="";
+        $scope.salary="";
+    }
+    });
+</script>

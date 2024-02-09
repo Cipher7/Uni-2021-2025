@@ -25,41 +25,41 @@
             Total number of items::{{itemlist.length}}
         </div>
     </body>
-    <script>
-        var ajs = angular.module("Prog10",[]);
-        ajs.controller("manage",function($scope)
+</html>
+<script>
+    var a = angular.module("Prog10",[]);
+    a.controller("manage",function($scope)
+    {
+        $scope.itemlist=["Marker","Eraser"];
+        $scope.additems = function()
         {
-            $scope.itemlist=["Marker","Eraser"];
-            $scope.additems = function()
+            if($scope.items && $scope.itemlist.indexOf($scope.items)==-1)
             {
-                if($scope.items && $scope.itemlist.indexOf($scope.items)==-1)
+                $scope.itemlist.push($scope.items);
+                $scope.items="";
+            }
+            else{
+                if($scope.items)
                 {
-                    $scope.itemlist.push($scope.items);
-                    $scope.items="";
+                    alert("Item already exists!");
+                    document.getElementById("it").focus();
+                    return false;
                 }
                 else{
-                    if($scope.items)
-                    {
-                        alert("Item already exists!");
-                        document.getElementById("it").focus();
-                        return false;
-                    }
-                    else{
-                        alert("Enter an element to be added...")
-                        document.getElementById("it").focus();
-                        return false;
-                    }
+                    alert("Enter an element to be added...")
+                    document.getElementById("it").focus();
+                    return false;
                 }
             }
-            $scope.removeitems=function(item)
+        }
+        $scope.removeitems=function(item)
+        {
+            var pakka=confirm("Do you really want to delete this item?");
+            if(pakka)
             {
-                var pakka=confirm("Do you really want to delete this item?");
-                if(pakka)
-                {
-                    ind=$scope.itemlist.indexOf(item);
-                    $scope.itemlist.splice(ind,1);
-                }
+                ind=$scope.itemlist.indexOf(item);
+                $scope.itemlist.splice(ind,1);
             }
-        });
-    </script>
-</html>
+        }
+    });
+</script>
