@@ -54,8 +54,8 @@
         }
         $scope.removeitems=function(item)
         {
-            var pakka=confirm("Do you really want to delete this item?");
-            if(pakka)
+            var verify=confirm("Do you really want to delete this item?");
+            if(verify)
             {
                 ind=$scope.itemlist.indexOf(item);
                 $scope.itemlist.splice(ind,1);
