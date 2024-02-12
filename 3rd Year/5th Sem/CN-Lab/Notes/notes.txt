@@ -2,8 +2,10 @@
 
 # version 1.15 does not work! use 1.14
 
-Link --> technobytz.com/wp-content/uploads/2015/11/nam_1.14_amd64.zip
-
+# Run this to install
+wget https://raw.githubusercontent.com/Cipher7/Uni-2021-2025/main/3rd%20Year/5th%20Sem/CN-Lab/Notes/nam-install.sh
+chmod +x nam-install.sh
+sudo ./nam-install.sh 
 # .nam = Network Animation File
 # .tcl = Tool command language
 # .tr  = Trace file
