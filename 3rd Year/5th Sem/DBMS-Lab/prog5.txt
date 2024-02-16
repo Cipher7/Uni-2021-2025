@@ -1,0 +1,18 @@
+/*
+Question 5
+*/
+
+create database library_cs151;
+
+use library_cs151;
+
+
+// Table creation
+create table PUBLISHER(Publisher_name varchar(255) primary key, Address varchar(255),Phone int);
+create table BOOK(Book_id int primary key, Title varchar(255),Publisher_name varchar(255),Pub_Year int(4), foreign key(Publisher_name) references PUBLISHER(Publisher_name));
+create table BOOK_AUTHORS(Book_id int, Author_name varchar(255), foreign key(Book_id) references BOOK(Book_id) on delete cascade);
+create table LIBRARY_BRANCH(Branch_id int primary key, Branch_name varchar(255), Address varchar(255));
+create table BOOK_COPIES(Book_id int, Branch_id int, Copies int, primary key(Book_id,Branch_id), foreign key(Book_id) references BOOK(Book_id) on delete cascade, foreign key(Branch_id) references LIBRARY_BRANCH(Branch_id) on delete cascade);
+create table BOOK_LENDING(Book_id int, Branch_id int, Card_no int, Date_out date, Due_date date, primary key(Book_id,Branch_id,Card_no), foreign key(Book_id) references BOOK(Book_id) on delete cascade, foreign key(Branch_id) references LIBRARY_BRANCH(Branch_id) on delete cascade);
+
+//Inserting values
