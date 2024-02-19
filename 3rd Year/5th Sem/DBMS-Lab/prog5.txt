@@ -1,0 +1,59 @@
+/*
+Question 5
+*/
+
+create database library_cs151;
+
+use library_cs151;
+
+
+// Table creation
+create table PUBLISHER(Publisher_name varchar(255) primary key, Address varchar(255),Phone int);
+create table BOOK(Book_id int primary key, Title varchar(255),Publisher_name varchar(255),Pub_Year int(4), foreign key(Publisher_name) references PUBLISHER(Publisher_name));
+create table BOOK_AUTHORS(Book_id int, Author_name varchar(255), foreign key(Book_id) references BOOK(Book_id) on delete cascade);
+create table LIBRARY_BRANCH(Branch_id int primary key, Branch_name varchar(255), Address varchar(255));
+create table BOOK_COPIES(Book_id int, Branch_id int, Copies int, primary key(Book_id,Branch_id), foreign key(Book_id) references BOOK(Book_id) on delete cascade, foreign key(Branch_id) references LIBRARY_BRANCH(Branch_id) on delete cascade);
+create table BOOK_LENDING(Book_id int, Branch_id int, Card_no int, Date_out date, Due_date date, primary key(Book_id,Branch_id,Card_no), foreign key(Book_id) references BOOK(Book_id) on delete cascade, foreign key(Branch_id) references LIBRARY_BRANCH(Branch_id) on delete cascade);
+
+//Inserting values
+insert into PUBLISHER values("cambridge", "delhi", 900009876);
+insert into PUBLISHER values("dreamworks", "chennai", 900008876);
+insert into PUBLISHER values("fox", "pune", 900007876);
+insert into PUBLISHER values("pearson", "bangalore", 900006876);
+insert into PUBLISHER values("tata", "mumbai", 900005876);
+
+insert into BOOK values(1001,"software engineering","pearson",1998);
+insert into BOOK values(1002,"digital image processing","tata",1998);
+insert into BOOK values(1003,"computer architecture","dreamworks",1998);
+insert into BOOK values(1004,"data structures","fox",1998);
+insert into BOOK values(1005,"dbms","cambridge",1998);
+
+insert into BOOK_AUTHORS values(1001,"Samuel Simons");
+insert into BOOK_AUTHORS values(1002,"Morris Mano");
+insert into BOOK_AUTHORS values(1003,"G Navathe");
+insert into BOOK_AUTHORS values(1004,"Christopher Nolan");
+insert into BOOK_AUTHORS values(1005,"Chris Hemsworth");
+
+insert into LIBRARY_BRANCH values(1,"CMRIT","Bangalore");
+insert into LIBRARY_BRANCH values(2,"RV","Bangalore");
+insert into LIBRARY_BRANCH values(3,"PES","Mumbai");
+insert into LIBRARY_BRANCH values(4,"CU","Chandigarh");
+insert into LIBRARY_BRANCH values(5,"CGC","Pune");
+
+insert into BOOK_COPIES values(1001,1,50);
+insert into BOOK_COPIES values(1001,2,10);
+insert into BOOK_COPIES values(1002,3,80);
+insert into BOOK_COPIES values(1003,5,90);
+insert into BOOK_COPIES values(1005,3,60);
+
+insert into BOOK_LENDING values(1001,1,501,"2017-01-01","2017-06-30");
+insert into BOOK_LENDING values(1002,1,501,"2017-04-15","2017-05-26");
+insert into BOOK_LENDING values(1002,2,501,"2017-01-15","2017-06-25");
+insert into BOOK_LENDING values(1002,5,501,"2017-01-02","2017-01-26");
+insert into BOOK_LENDING values(1003,1,501,"2017-03-15","2017-06-26");
+insert into BOOK_LENDING values(1003,1,501,"2017-04-01","2017-05-16");
+insert into BOOK_LENDING values(1003,5,501,"2017-01-25","2017-02-26");
+insert into BOOK_LENDING values(1005,1,501,"2017-01-25","2017-06-26");
+insert into BOOK_LENDING values(1005,4,501,"2017-07-04","2017-07-30");
+insert into BOOK_LENDING values(1005,5,501,"2017-01-25","2017-06-26");
+insert into BOOK_LENDING values(1005,5,501,"2017-02-05","2017-03-21");

@@ -67,7 +67,7 @@ insert into IAMARKS(USN, Subcode, SSID, test1, test2, test3) values('1bi16cs109'
 1-> select S.* from STUDENT S, SEMSEC SS, CLASS C where S.USN=C.USN and SS.SSID=C.SSID and SS.Sem=4 and SS.Sec='C'; 
 2-> select Sem,Sec,Gender,COUNT(Gender) from STUDENT NATURAL JOIN CLASS NATURAL JOIN SEMSEC group by Sem,Sec,Gender; 
 3-> create view TEST1_1BI15CS101 as select USN,Subcode,test1 from IAMARKS where USN='1bi15cs101'; 
-4-> 
-5->
+4-> update IAMARKS set FINALIA=(test1+test2+test3-LEAST(test1,test2,test3))/2; 
+5-> (select I.USN,SUBCODE,"OUTSTANDING" as CATEGORY from IAMARKS I, CLASS C, SEMSEC SS where I.USN=C.USN and C.SSID=SS.SSID and finalia between 17 and 20 and SEM=8 and SEC in('A','B','C')) UNION (select I.USN,SUBCODE,"AVERAGE" as CATEGORY from IAMARKS I, CLASS C, SEMSEC SS where I.USN=C.USN and C.SSID=SS.SSID and finalia between 12 and 16 and SEM=8 and SEC in('A','B','C')) UNION (select I.USN,SUBCODE,"WEAK" as CATEGORY from IAMARKS I, CLASS C, SEMSEC SS where I.USN=C.USN and C.SSID=SS.SSID and finalia < 12 and SEM=8 and SEC in('A','B','C'));
 
 
