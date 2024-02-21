@@ -8,7 +8,11 @@ just run
 node -v 
 ```
 
-If you get a version, then node is globally accessible
+If you get a version, then node is globally accessible and you can run :
+
+```
+node <filename.js>
+```
 
 Else
 
