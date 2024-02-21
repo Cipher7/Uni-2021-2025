@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Display Date in Different Formats</title>
+    </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body ng-app="date_app">
+        <h2>Display Date in Different Formats</h2>
+        <div ng-controller="date_cntlr">
+            The date and time now is: {{today}}<br>
+            Short date: {{today | date:'short'}}<br>
+            Long date: {{today | date:'fullDate'}}<br>
+            Medium date: {{today | date:'medium'}}<br>
+        </div>
+    </body>
+</html>
+
+<script type="text/javascript">
+    var date=angular.module("date_app",[]);
+    date.controller("date_cntlr",function($scope){
+        $scope.today = new Date();
+    });
+</script>
