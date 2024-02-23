@@ -61,8 +61,8 @@ insert into BOOK_LENDING values(1005,5,701,"2017-02-05","2017-03-21");
 
 // Executing statements
 
-1-> select C.Programme_id, B.Book_id, B.Title, B.Publisher_Name, A.Author_Name, C.No_of_Copies from BOOK B, BOOK_AUTHORS A, BOOK_COPIES C where B.Book_id=A.Book_id and B.Book_id=C.Book_id order by C.Programme_id;
+1-> select C.Programme_id, B.Book_id, B.Title, B.Publisher_Name, A.Author_Name, C.Copies from BOOK B, BOOK_AUTHORS A, BOOK_COPIES C where B.Book_id=A.Book_id and B.Book_id=C.Book_id order by C.Programme_id;
 2-> select Card_No from BOOK_LENDING where Date_Out>='2017-01-01' and Date_Out<='2017-06-30' group by Card_No having count(*)>3;
 3-> delete from BOOK where Book_id=1005;
 4-> create view V_PUB as select Pub_Year from BOOK;
-5-> create view V_BOOKS as select B.Book_id, B.Title, C.No_of_Copies from BOOK B, BOOK_COPIES C, LIBRARY_PROGRAMME L where B.Book_id=C.Book_id and L.Programme_id=C.Programme_id; 
+5-> create view V_BOOKS as select B.Book_id, B.Title, C.Copies from BOOK B, BOOK_COPIES C, LIBRARY_PROGRAMME L where B.Book_id=C.Book_id and L.Programme_id=C.Programme_id; 
