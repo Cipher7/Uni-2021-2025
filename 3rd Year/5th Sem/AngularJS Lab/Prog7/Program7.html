@@ -7,7 +7,7 @@
         <div ng-controller="crud">
             <p>Simple CRUD Application</p>
             Enter Name : <input type="text" id="name" ng-model="new_name"> &nbsp;&nbsp;
-            Enter Email : <input type="text" id="email" ng-model="new_email"> &nbsp;&nbsp;
+            Enter Email : <input type="email" id="email" ng-model="new_email"> &nbsp;&nbsp;
             <input type="button" value="create" ng-click="create()"><br /> <br />
             <ul>
                 <li ng-repeat="user in users">
