@@ -35,6 +35,9 @@ public class Prog7_LeakyBucket {
 				Rem_Buc_content = Buc_Content - op_rate;
 				System.out.println(Rec_Pkt_Size + "     \t   " + Buc_Content + "     \t    " + "   Acc  \t  " + Rem_Buc_content);
 			}
+			if(Rem_Buc_content<0) {
+				Rem_Buc_content =0;
+			}
 		}
 
 		while(Rem_Buc_content >0) {
