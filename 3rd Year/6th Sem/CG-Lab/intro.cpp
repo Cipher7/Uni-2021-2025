@@ -5,11 +5,19 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	glColor3f(1,0,0);
-	glBegin(GL_POLYGON);
-	glVertex2f(-0.5,-0.5);
+	// GL_POLYGON / GL_POINTS / GL_LINES / GL_LINE_LOOP / GL_TRIANGLES
+	glBegin(GL_TRIANGLES); 
+	
+	/*glVertex2f(-0.5,-0.5);
 	glVertex2f(0.5,-0.5);
 	glVertex2f(0.5,0.5);
-	glVertex2f(-0.5,0.5);
+	glVertex2f(-0.5,0.5);*/
+	
+	glVertex2i(125,125);
+	glVertex2i(375,125);
+	glVertex2i(375,375);
+	glVertex2i(125,375);
+	
 	glEnd();
 	
 	glFlush();
@@ -18,6 +26,12 @@ void display()
 void myinit()
 {
 	glClearColor(0.5,0.5,0.5,1);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0,499,0,499);
+	glMatrixMode(GL_MODELVIEW);
+	glPointSize(3.0);
+	glLineWidth(2.0);
 }
 
 int main(int argc, char** argv)
