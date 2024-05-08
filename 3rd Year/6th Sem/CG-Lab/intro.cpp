@@ -6,7 +6,7 @@ void display()
 	
 	glColor3f(1,0,0);
 	// GL_POLYGON / GL_POINTS / GL_LINES / GL_LINE_LOOP / GL_TRIANGLES
-	glBegin(GL_TRIANGLES); 
+	glBegin(GL_POINTS); 
 	
 	/*glVertex2f(-0.5,-0.5);
 	glVertex2f(0.5,-0.5);
@@ -17,6 +17,11 @@ void display()
 	glVertex2i(375,125);
 	glVertex2i(375,375);
 	glVertex2i(125,375);
+	
+	int N = 500;
+	
+	for(int i=0;i<20;i++)
+		glVertex2f(rand()%N, rand()%N);
 	
 	glEnd();
 	
