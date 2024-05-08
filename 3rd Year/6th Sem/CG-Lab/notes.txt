@@ -1,0 +1,4 @@
+# To compile program use these options
+
+g++ intro.cpp -lGL -lGLU -lglut
+
