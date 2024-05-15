@@ -1,5 +1,7 @@
 // Bresenhams line drawing Algo
+using namespace std;
 #include <GL/glut.h>
+#include <iostream>
 
 float ax=100,ay=100,bx=200,by=130;
 
@@ -10,12 +12,50 @@ void draw_pixel(float x, float y)
 	glEnd();
 }
 
+void bres()
+{
+	// |m| < 1
+	// check that point is going left to right
+	float dy = by-ay, dx=bx-ax;
+	float m = dy/dx;
+	float inc=1;
+	if(m < 0)
+	{
+		inc = -1;
+	}
+	
+	if(abs(m) < 1)
+	{
+		float x = ax, y = ay;
+		if(bx < ax)
+		{
+			swap(ax,bx);
+			swap(ay,by);
+		}
+		float p = 2*dy - dx;
+		
+		while(x < bx)
+		{
+			if(p<0)
+				p+=2*dy;
+				
+			else
+			{
+				y+=inc;
+				p+=2*dy-2*dx;
+			}
+			x++;
+			draw_pixel(x,y);
+		}
+	}
+}
 
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	glColor3f(1,0,0);
+	glColor3f(0,0,1);
+	bres();
 	glPointSize(3.0);
 	draw_pixel(ax, ay);
 	draw_pixel(bx,by);
