@@ -28,6 +28,26 @@ void bres()
 	dx = abs(dx);
 	dy = abs(dy);
 	
+	if(dx == 0)
+	{	
+		float x = ax, y = ay;
+		while(y!=by)
+		{
+			y++;
+			draw_pixel(x,y);
+		}
+	}
+	
+	if(dy == 0)
+	{
+		float x = ax, y = ay;
+		while(x!=bx)
+		{
+			x++;
+			draw_pixel(x,y);
+		}
+	}
+	
 	if(abs(m) < 1)
 	{
 		float x = ax, y = ay;
@@ -52,14 +72,15 @@ void bres()
 			draw_pixel(x,y);
 		}
 	}
-	else
+	else if(abs(m) > 1)
 	{
-		float x = ax, y = ay;
 		if(by < ay)
 		{
 			swap(ax,bx);
 			swap(ay,by);
 		}
+		float x = ax, y = ay;
+		
 		float p = 2*dx - dy;
 		
 		while(y < by)
@@ -74,6 +95,16 @@ void bres()
 			}
 			y++;
 			draw_pixel(x,y);
+		}
+	}
+	else
+	{
+		float x = ax, y = ay;
+		while(x!=bx && y!=by)
+		{
+			draw_pixel(x,y);
+			x++;
+			y++;
 		}
 	}
 }
