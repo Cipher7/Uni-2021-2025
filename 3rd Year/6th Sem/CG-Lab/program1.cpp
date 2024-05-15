@@ -3,7 +3,7 @@ using namespace std;
 #include <GL/glut.h>
 #include <iostream>
 
-float ax=100,ay=100,bx=200,by=130;
+float ax=100,ay=130,bx=200,by=100;
 
 void draw_pixel(float x, float y)
 {
@@ -23,6 +23,9 @@ void bres()
 	{
 		inc = -1;
 	}
+
+	dx = abs(dx);
+	dy = abs(dy);
 	
 	if(abs(m) < 1)
 	{
@@ -45,6 +48,30 @@ void bres()
 				p+=2*dy-2*dx;
 			}
 			x++;
+			draw_pixel(x,y);
+		}
+	}
+	else
+	{
+		float x = ax, y = ay;
+		if(by < ay)
+		{
+			swap(ax,bx);
+			swap(ay,by);
+		}
+		float p = 2*dx - dy;
+		
+		while(y < by)
+		{
+			if(p<0)
+				p+=2*dx;
+				
+			else
+			{
+				x+=inc;
+				p+=2*dx-2*dy;
+			}
+			y++;
 			draw_pixel(x,y);
 		}
 	}
