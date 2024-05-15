@@ -3,7 +3,8 @@ using namespace std;
 #include <GL/glut.h>
 #include <iostream>
 
-float ax=100,ay=130,bx=200,by=100;
+//float ax=100,ay=130,bx=200,by=100;
+float ax,ay,bx,by;
 
 void draw_pixel(float x, float y)
 {
@@ -101,6 +102,8 @@ void myinit()
 
 int main(int argc, char **argv)
 {
+	cout << "Enter (x1,y1), (x2,y2) : ";
+	cin>>ax>>ay>>bx>>by;
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 	glutInitWindowSize(500,500);
