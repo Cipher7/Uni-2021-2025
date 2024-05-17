@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>List Display</title>
+        <style>
+            #unorder
+            {
+                background-color:lightgreen;
+                color:brown,
+                display:table;
+            }
+            #order
+            {
+                background-color:cyan;
+                color:yellow
+                display:table;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="unorder">Unordered list of Fruits</h2>
+        <ul>
+            {{fruits|unordered_list}}
+        </ul>
+
+        <h2 id="order">Ordered list of Students</h2>
+        <ol>
+            {% for stud in students %}
+            <li>
+                {{ stud }}
+            </li>
+            {% endfor %}
+        </ol>
+</html>

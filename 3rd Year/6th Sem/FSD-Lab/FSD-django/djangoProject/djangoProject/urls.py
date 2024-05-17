@@ -20,9 +20,11 @@ from django.urls import path
 
 from prog3.views import displaydate
 from prog4.views import displaydateoffset
+from prog5.views import show_lists
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('prog3/', displaydate),
-    path('prog4/',displaydateoffset)
+    path('prog4/',displaydateoffset),
+    path('prog5/',show_lists)
 ]
