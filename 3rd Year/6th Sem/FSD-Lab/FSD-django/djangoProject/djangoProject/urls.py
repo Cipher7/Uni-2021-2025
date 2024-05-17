@@ -17,9 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+
 from prog3.views import displaydate
+from prog4.views import displaydateoffset
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prog3/', displaydate)
+    path('prog3/', displaydate),
+    path('prog4/',displaydateoffset)
 ]
