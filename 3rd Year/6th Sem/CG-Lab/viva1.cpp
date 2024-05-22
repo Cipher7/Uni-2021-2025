@@ -1,4 +1,4 @@
-// 2D Geometric Operations
+// VIVA - Lab 3
 using namespace std;
 #include <GL/glut.h>
 #include <iostream>
@@ -8,8 +8,6 @@ float tri[3][3] = {{-100,100,0}, {-100,-100,100}, {1,1,1}};
 int N=3;
 float tx=50, ty=50;
 
-float theta = 30;
-float thetar = theta * (M_PI/180);
 float px = -100, py = -100;
 
 float sx=0.5, sy=0.5;
@@ -21,42 +19,19 @@ void scale_tri()
 	for (int i=0;i<N;i++)
 	{
 		float x = tri[0][i], y = tri[1][i];
-		//float xb = x*sx;
-		//float yb = y*sy;
+		float xb = x*sx;
+		float yb = y*sy;
 
-		float xb = x*sx + fx*(1-sx);
-		float yb = y*sy + fy*(1-sy);
+		//float xb = x*sx + fx*(1-sx);
+		//float yb = y*sy + fy*(1-sy);
 		glVertex2f(xb, yb);
 	}
-	glEnd();
-}
-
-void rotate_tri()
-{
-	glBegin(GL_LINE_LOOP);
-	for (int i=0;i<N;i++)
-	{
-		float x = tri[0][i], y = tri[1][i];
-		//float xb = x*cos(thetar) - y*sin(thetar);
-		//float yb = x*sin(thetar) + y*cos(thetar);
-		float xb = px + (x-px)*cos(thetar) - (y-py)*sin(thetar);
-		float yb = py + (x-px)*sin(thetar) + (y-py)*cos(thetar);
-		glVertex2f(xb, yb);
-	}
-	glEnd();
-}
-
-void translate_tri()
-{
-	glBegin(GL_LINE_LOOP);
-	for (int i=0;i<N;i++)
-		glVertex2f(tri[0][i]+tx, tri[1][i]+ty);
 	glEnd();
 }
 
 void draw_tri()
 {
-	glBegin(GL_LINE_LOOP);
+	glBegin(GL_POLYGON);
 	for (int i=0;i<N;i++)
 		glVertex2f(tri[0][i], tri[1][i]);
 	glEnd();
@@ -69,9 +44,7 @@ void display()
 	glColor3f(1,0,0);
 	draw_tri(); 
 	glColor3f(1,0,1);
-	//translate_tri();
-	//rotate_tri();
-	scale_tri();
+	viva();
 	glFlush();
 }
 
