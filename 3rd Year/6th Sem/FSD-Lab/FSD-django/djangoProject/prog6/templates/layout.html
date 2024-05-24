@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <nav>
+            <a href="/prog6/home">Home</a>&emsp;|&emsp;
+            <a href="/prog6/aboutus">About us</a>&emsp;|&emsp;
+            <a href="/prog6/contactus">Contact us</a>
+        </nav>
+        <section>
+            {% block content %}{% endblock %}
+        </section>
+        <div style="margin-top:470px">
+            <footer>
+                <hr>
+                    &copy;2024 6th sem CMRIT Django
+            </footer>
+    </body>
+</html>
