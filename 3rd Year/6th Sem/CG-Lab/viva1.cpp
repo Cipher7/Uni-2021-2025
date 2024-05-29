@@ -13,9 +13,18 @@ float px = -100, py = -100;
 float sx=0.5, sy=0.5;
 float fx=-100,fy=-100;
 
+
+void viva()
+{
+	glBegin(GL_POLYGON);
+	for (int i=0;i<N;i++)
+		glVertex2f(tri[0][i], tri[1][i]);
+	glEnd();
+}
+
 void scale_tri()
 {
-	glBegin(GL_LINE_LOOP);
+	glBegin(GL_POLYGON);
 	for (int i=0;i<N;i++)
 	{
 		float x = tri[0][i], y = tri[1][i];
@@ -43,8 +52,9 @@ void display()
 	
 	glColor3f(1,0,0);
 	draw_tri(); 
-	glColor3f(1,0,1);
+	glColor3f(0.5,0,0);
 	viva();
+	
 	glFlush();
 }
 
