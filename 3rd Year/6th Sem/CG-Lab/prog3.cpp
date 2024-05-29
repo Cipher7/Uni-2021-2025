@@ -1,39 +1,33 @@
-//2D transformations on basic objects using GLUT
-
 #include<GL/glut.h>
-
+/*Develop a program to demonstrate 2D transformations on basic objects*/
 #define ORIGINAL -1
 #define TRANSLATE 1
 #define ROTATEZ 2
 #define ROTATE_PIV 3
 
 int TRANSFORM = ORIGINAL;
-float tx=50,ty = 50,tz=0;
+float tx=50,ty = 50,tz=0;// //translate
 float rz = 60, px=0, py=160;
-void obj()
-{
-  glColor3f(.6,.2,.2); //brown
+void obj(){
+//tree
+glColor3f(.6,.2,.2); //brown
   glBegin(GL_POLYGON); //stump
     glVertex2f(-15,-50); glVertex2f(15,-50);
     glVertex2f(15,10); glVertex2f(-15,10);
   glEnd();
-  
-  glColor3f(.4,.6,.1);//medium green
-  glBegin(GL_TRIANGLES);
+glColor3f(.4,.6,.1);//medium green
+  glBegin(GL_TRIANGLES); //upper portion tri
     glVertex2f(-50,10); glVertex2f(0,60); glVertex2f(50,10); glColor3f(.3,.6,.1);
     glVertex2f(-50,40); glVertex2f(0,110); glVertex2f(50,40);glColor3f(.2,.6,.1);
     glVertex2f(-50,70); glVertex2f(0,160); glVertex2f(50,70);
   glEnd();
-  
-  glColor3f(1,0,0); glPointSize(5);
-  glBegin(GL_POINTS); glVertex2f(0,159); glEnd();
-}
+glColor3f(1,0,0); glPointSize(5);
+glBegin(GL_POINTS); glVertex2f(0,159); glEnd();
 
-void display()
-{
+}
+void display(){
   glClear(GL_COLOR_BUFFER_BIT);
-  switch(TRANSFORM)
-  {
+  switch(TRANSFORM){
      case -1:
           obj();
           break;
@@ -57,16 +51,19 @@ void display()
 		 obj();
          glPopMatrix();
          break;
+
    }
+
+
   glFlush();
 }
 
-void myinit()
-{
+void myinit(){
   glClearColor(1,1,1,1);
   glMatrixMode(GL_PROJECTION);
-  gluOrtho2D(-250,250,-250,250);
+  gluOrtho2D(-250,250,-250,250);//left right bottom top, 0,0 is at the center
   glMatrixMode(GL_MODELVIEW);
+
 }
 void menu(int id){
   switch(id){
@@ -80,7 +77,7 @@ void menu(int id){
 		TRANSFORM = TRANSLATE;
         break;
    }
-   glutPostRedisplay();
+   glutPostRedisplay(); //calls display function, checks flag in glutMainLoop()
 }
 
 void rot_menu(int id){
@@ -95,8 +92,7 @@ void rot_menu(int id){
   glutPostRedisplay();
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
    glutInit(&argc, argv);
    glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
 
@@ -120,3 +116,4 @@ int main(int argc, char **argv)
    glutMainLoop();
    return 0;
 }
+
