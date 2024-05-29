@@ -16,8 +16,10 @@ void object()
 	glEnd();
 
 	glColor3f(.4, .6, .1);
-	glBegin(GL_POLYGON);
-	glVertex2f(-50,10);glVertex2f(0,40);glVertex2f(50,10);
+	glBegin(GL_TRIANGLES);
+	glVertex2f(-50,10);glVertex2f(0,60);glVertex2f(50,10);
+	glVertex2f(-50,40);glVertex2f(0,110);glVertex2f(50,40);
+	glVertex2f(-50,70);glVertex2f(0,160);glVertex2f(50,70);
 	glEnd();
 
 }
