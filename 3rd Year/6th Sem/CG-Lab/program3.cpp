@@ -10,15 +10,16 @@
 int TRANSFORM = ORIGINAL;
 float tx=50,ty = 50,tz=0;
 float rz = 60, px=0, py=160;
+
 void obj()
 {
-  glColor3f(.6,.2,.2); //brown
-  glBegin(GL_POLYGON); //stump
+  glColor3f(.6,.2,.2);
+  glBegin(GL_POLYGON);
     glVertex2f(-15,-50); glVertex2f(15,-50);
     glVertex2f(15,10); glVertex2f(-15,10);
   glEnd();
   
-  glColor3f(.4,.6,.1);//medium green
+  glColor3f(.4,.6,.1);
   glBegin(GL_TRIANGLES);
     glVertex2f(-50,10); glVertex2f(0,60); glVertex2f(50,10); glColor3f(.3,.6,.1);
     glVertex2f(-50,40); glVertex2f(0,110); glVertex2f(50,40);glColor3f(.2,.6,.1);
@@ -68,8 +69,11 @@ void myinit()
   gluOrtho2D(-250,250,-250,250);
   glMatrixMode(GL_MODELVIEW);
 }
-void menu(int id){
-  switch(id){
+
+void menu(int id)
+{
+  switch(id)
+  {
      case 0:
        exit(0);
        break;
@@ -83,8 +87,10 @@ void menu(int id){
    glutPostRedisplay();
 }
 
-void rot_menu(int id){
-  switch(id){
+void rot_menu(int id)
+{
+  switch(id)
+  {
 	case 2:
       TRANSFORM = ROTATEZ;
       break;
