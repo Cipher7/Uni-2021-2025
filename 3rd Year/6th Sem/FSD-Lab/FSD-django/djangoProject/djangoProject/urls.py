@@ -24,6 +24,8 @@ from prog5.views import show_lists
 from prog6.views import show_home_page
 from prog6.views import show_aboutus_page
 from prog6.views import show_contactus_page
+from prog7.views import register
+from prog7.views import course_search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +34,7 @@ urlpatterns = [
     path('prog5/',show_lists),
     path('prog6/home/', show_home_page),
     path('prog6/aboutus', show_aboutus_page),
-    path('prog6/contactus', show_contactus_page)
+    path('prog6/contactus', show_contactus_page),
+    path('prog7/register', register),
+    path('prog7/coursesearch', course_search)
 ]
