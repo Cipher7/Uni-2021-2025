@@ -10,6 +10,11 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
+## Install django
+```
+pip install django
+```
+
 ## Create a project
 ```bash
 django-admin --version
