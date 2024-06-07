@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'prog3',
     'prog4',
     'prog5',
-    'prog6'
+    'prog6',
+    'prog7'
 ]
 
 MIDDLEWARE = [

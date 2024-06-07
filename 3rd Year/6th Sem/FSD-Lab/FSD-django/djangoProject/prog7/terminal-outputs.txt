@@ -1,0 +1,23 @@
+(venv) cs151@csel506sys08-OptiPlex-3090:~/Uni-2021-2025/3rd Year/6th Sem/FSD-Lab/FSD-django/djangoProject$ python3 manage.py shell
+Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from prog7.models import Student
+>>> stud1 = Student(student_usn='1CR21CS001', student_name='Ann', student_sem=6)
+>>> stud2 = Student(student_usn='1CR21CS002', student_name='Ben', student_sem=6)
+>>> stud3 = Student(student_usn='1CR21CS003', student_name='Harry', student_sem=6)
+>>> stud4 = Student(student_usn='1CR21CS004', student_name='Jack', student_sem=6)
+>>> studList = [stud1,stud2,stud3,stud4]
+>>> for d in studList:
+...     d.save()
+... 
+>>> from prog7.models import Course
+>>> course1 = Course(course_code='21CS61', course_name='Software Engg', course_credits=3)
+>>> course2 = Course(course_code='21CS62', course_name='Full Stack Dev', course_credits=4)
+>>> course3 = Course(course_code='21CS63', course_name='Computer Graphics', course_credits=4)
+>>> course4 = Course(course_code='21CS64', course_name='Advanced Java', course_credits=3)
+>>> course5 = Course(course_code='21CS65', course_name='Data Visualization', course_credits=3)
+>>> courseList = [course1,course2,course3,course4,course5]
+>>> for c in courseList:
+...     c.save()
+... 
