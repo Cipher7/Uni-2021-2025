@@ -1,9 +1,12 @@
 #include <GL/glut.h>
 #define SPIN 1
 #define STOP 0
+#define MOVE 1
 
+int mx = MOVE;
 int flag = STOP;
 float theta = 0;
+float tx = 0;
 
 float viewer[3] = {0,0,5};
 
@@ -13,18 +16,31 @@ void rotors()
 
 	glPushMatrix();
 	glScalef(1.5,0.2,0.2);
-	glutWireCube(1);
+	glutSolidCube(1);
 	glPopMatrix();
 
 	glPushMatrix();
 	glRotatef(90,0,0,1);
 	glScalef(1.5,0.2,0.2);
-	glutWireCube(1);
+	glutSolidCube(1);
 	glPopMatrix();
 }
 
 void sub()
 {
+	glPushMatrix();
+	glTranslatef(0,0,-2);
+	glutSolidSphere(0.5,20,20);
+	glPopMatrix();
+
+	glColor3f(0,1,1);
+	glPushMatrix();
+	GLUquadricObj *quadratic;
+	quadratic = gluNewQuadric();
+	glTranslatef(0,0,-1.8);
+	gluCylinder(quadratic,0.5,0.3,1.8,32,32);
+	glPopMatrix();
+
 	if(flag == SPIN)
 	{
 		glPushMatrix();
@@ -50,7 +66,18 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	gluLookAt(viewer[0], viewer[1], viewer[2], 0,0,0,0,1,0);
-	sub();
+	glPushMatrix();
+	glRotatef(-70,0,1,0);
+	glRotatef(10,0,1,0);
+	if(mx)
+	{
+		glPushMatrix();
+		glTranslatef(tx, 0, 0);
+		sub();
+		glPopMatrix();
+	}
+
+	glPopMatrix();
 	glutSwapBuffers();
 }
 
@@ -81,6 +108,17 @@ void keys(unsigned char key, int x, int y)
 		flag = SPIN;
 	else if(key == 'P')
 		flag = STOP;
+	else if(key == 'd')
+	{
+		tx += 0.2;
+		flag = MOVE;
+	}
+
+	else if(key == 'a')
+	{
+		tx -= 0.2;
+		flag = MOVE;
+	}
 	glutPostRedisplay();
 }
 
