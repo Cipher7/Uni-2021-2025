@@ -1,13 +1,48 @@
 #include <GL/glut.h>
+#define SPIN 1
+#define STOP 0
+
+int flag = STOP;
+float theta = 0;
 
 float viewer[3] = {0,0,5};
 
+void rotors()
+{
+	glColor3f(1,0,0);
+
+	glPushMatrix();
+	glScalef(1.5,0.2,0.2);
+	glutWireCube(1);
+	glPopMatrix();
+
+	glPushMatrix();
+	glRotatef(90,0,0,1);
+	glScalef(1.5,0.2,0.2);
+	glutWireCube(1);
+	glPopMatrix();
+}
+
 void sub()
 {
-	glColor3f(0,0,1);
-	glutWireCube(1);
-	glColor3f(1,1,0);
-	glutWireSphere(2,20,20);
+	if(flag == SPIN)
+	{
+		glPushMatrix();
+		glRotatef(theta,0,0,1);
+		rotors();
+		glPopMatrix();
+		theta += 0.5;
+		if(theta >= 360)
+			theta -= 360;
+		glutPostRedisplay();
+	}
+	else
+	{
+		glPushMatrix();
+		glRotatef(theta,0,0,1);
+		rotors();
+		glPopMatrix();
+	}
 }
 
 void display()
@@ -41,6 +76,11 @@ void keys(unsigned char key, int x, int y)
 	else if(key == 'Z')
 		viewer[2] -= 0.1;
 
+
+	else if(key == 'p')
+		flag = SPIN;
+	else if(key == 'P')
+		flag = STOP;
 	glutPostRedisplay();
 }
 
