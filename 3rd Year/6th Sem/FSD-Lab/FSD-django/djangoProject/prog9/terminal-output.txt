@@ -1,0 +1,14 @@
+(venv) cs151@csel506sys08-OptiPlex-3090:~/Uni-2021-2025/3rd Year/6th Sem/FSD-Lab/FSD-django/djangoProject$ python3 manage.py shell
+Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from prog9.models import *
+>>> s1=Student(student_usn="1CR21CS001",student_name="Ann",student_sem=6)
+>>> s2=Student(student_usn="1CR21CS002",student_name="Ben",student_sem=6)
+>>> s3=Student(student_usn="1CR21CS003",student_name="Dan",student_sem=5)
+>>> s4=Student(student_usn="1CR21CS004",student_name="Clara",student_sem=5)
+>>> students=[s1,s2,s3,s4]
+>>> for s in students:
+...     s.save()
+... 
+>>> exit()

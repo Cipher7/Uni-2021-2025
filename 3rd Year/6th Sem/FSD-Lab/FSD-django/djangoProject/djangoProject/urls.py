@@ -37,6 +37,6 @@ urlpatterns = [
     path('prog6/aboutus', show_aboutus_page),
     path('prog6/contactus', show_contactus_page),
     path('prog7/register', register),
-    path('prog7/coursesearch', course_search)
+    path('prog7/coursesearch', course_search),
     path('prog9/register', addProject)
 ]
