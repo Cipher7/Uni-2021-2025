@@ -27,5 +27,16 @@ python3 manage.py runserver
 
 ## Create an application
 ```python
-python manage.py startapp prog1
+python3 manage.py startapp prog1
+```
+
+## Register a superuser
+```python
+python3 manage.py createsuperuser
+```
+
+## Apply migrations
+```python
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
