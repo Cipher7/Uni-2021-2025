@@ -1,0 +1,22 @@
+<html>
+    <center>
+        <h2>{{stud.student_name}}</h2>
+        <p>Student USN::&emsp;{{stud.student_usn}}</p>
+        <p>Student semester::&emsp;{{stud.student_sem}}</p>
+        <p>Student courses::<br><br>
+            <table border="1">
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                </tr>
+            {% for cr in stud.enrolment.all %}
+            <tr>
+                    <td>{{cr.course_code}}</td>
+                    <td>{{cr.course_name}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </p>
+
+    </center>
+</html>
