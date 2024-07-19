@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Search for Courses by Student Name</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Search for Courses by Student Name</h1>
+    <form id="searchForm" method="GET">
+      {{form.as_p}}
+      <button type="submit">Search</button>
+    </form>
+    <div id="courseList"></div>
+    <script>
+      $(document).ready(function() {
+            $('#searchForm').on('submit', function(event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    url: '{% url "search_courses" %}',
+                    type: 'GET',
+                    data: formData,
+                    success: function(response) {
+                      if (response.success) {
+                        var courses = response.courses;
+                        var courseList = ' < ul > ';
+                        for (var i = 0; i < courses.length; i++) {
+                          courseList += ' < li > ' + courses[i].name + ': ' +
+                          courses[i].description + '</li>';
+                        }
+                        courseList += ' < /ul>';
+                        $('#courseList').html(courseList);
+                      } else {
+                        $('#courseList').html(' < p > ' + response.error +
+                          '</p>');
+                      }
+                    },
+                    error: function(xhr, errmsg, err) {
+                      console.log(xhr.status + ': ' + xhr.responseText);
+                      $('#courseList').html(' < p > An error occurred
+                        while processing your request. < /p>');
+                      }
+                    });
+                });
+            });
+    </script>
+  </body>
+</html>
