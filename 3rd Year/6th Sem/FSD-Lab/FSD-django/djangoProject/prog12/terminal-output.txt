@@ -1,0 +1,22 @@
+(venv) cs151@csel506sys08-OptiPlex-3090:~/Uni-2021-2025/3rd Year/6th Sem/FSD-Lab/FSD-django/djangoProject$ python3 manage.py shell
+Python 3.10.12 (main, Mar 22 2024, 16:50:05) [GCC 11.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from prog12.models import *
+>>> course1 = Course(name='Software Engg', description='Course on software engineering principles.')
+>>> course2 = Course(name='Full Stack Dev', description='Course on full stack development.')
+>>> course3 = Course(name='Computer Graphics', description='Course on computer graphics.')
+>>> course4 = Course(name='Advanced Java', description='Course on advanced Java programming.')
+>>> course5 = Course(name='Data Visualization', description='Course on data visualization.')
+#make a list
+>>> for c in courseList:
+...     c.save()
+... 
+>>> student1 = Student(name='Ann', email='ann@example.com', course=course1)
+>>> student2 = Student(name='Ben', email='ben@example.com', course=course2)
+>>> student3 = Student(name='Harry', email='harry@example.com', course=course3)
+>>> student4 = Student(name='Jack', email='jack@example.com', course=course4)
+# make list
+>>> for s in studs:
+...     s.save()
+... 

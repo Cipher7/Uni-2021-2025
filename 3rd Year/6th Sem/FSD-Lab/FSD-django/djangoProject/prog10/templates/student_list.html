@@ -1,9 +1,9 @@
 <html>
     <h2>List of Students</h2>
     <ul>
-        {% for st in stud %}
+        {% for st in students %}
     <li>
-        <a href="{% url 'details' st.pk %}">{{st.student_name}}</a>
+        <a href="{% url 'details' st.pk %}">{{st.name}}</a>
     </li>
     {% endfor %}
 </ul>

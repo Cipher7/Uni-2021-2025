@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Registration</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Register Student</h1>
+    <form id="studentForm"> {% csrf_token %} {{form.as_p}}
+      <button type="submit">Register</button>
+    </form>
+    <div id="message"></div>
+    <!-- JQuery Code-->
+    <script>
+      $(document).ready(function() {
+            $('#studentForm').on('submit', function(event) {
+              event.preventDefault();
+              $.ajax({
+                url: '{% url "student_registration" %}',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                  if (response.success) {
+                    $('#message').html(' < p > Student registered successfully! < a href = "{% url "
+                      studentlist " %}" > View students < /a> < /p>');
+                      $('#studentForm')[0].reset();
+                    }
+                    else {
+                      let errors = ' < ul > ';
+                      for (let field in response.errors) {
+                        response.errors[field].forEach(function(error) {
+                          errors += ' < li > ' + error + ' < /li>';
+                        });
+                      }
+                      errors += ' < /ul>';
+                      $('#message').html(errors);
+                    }
+                  },
+                  error: function(xhr, status, error) {
+                    console.error("AJAX request failed:", error);
+                    $('#message').html(' < p > An error occurred
+                      while processing your request. < /p>');
+                    }
+                  });
+              });
+            });
+    </script>
+  </body>
+</html>

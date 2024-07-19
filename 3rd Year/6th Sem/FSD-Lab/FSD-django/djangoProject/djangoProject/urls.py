@@ -21,16 +21,12 @@ from django.urls import path
 from prog3.views import displaydate
 from prog4.views import displaydateoffset
 from prog5.views import show_lists
-from prog6.views import show_home_page
-from prog6.views import show_aboutus_page
-from prog6.views import show_contactus_page
-from prog7.views import register
-from prog7.views import course_search
+from prog6.views import show_home_page, show_aboutus_page, show_contactus_page
+from prog7.views import register, course_search
 from prog9.views import addProject
-from prog10.views import StudentList
-from prog10.views import StudentDetails
-from prog11.views import generate_csv_response
-from prog11.views import generate_pdf_response
+from prog10.views import StudentList, StudentDetails
+from prog11.views import generate_csv_response, generate_pdf_response
+from prog12.views import register_student, student_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -46,5 +42,7 @@ urlpatterns = [
     path('prog10/list/', StudentList.as_view()),
     path('prog10/details/<int:pk>/', StudentDetails.as_view(),name="details"),
     path('prog11/generatecsv', generate_csv_response),
-    path('prog11/generatepdf',generate_pdf_response)
+    path('prog11/generatepdf',generate_pdf_response),
+    path('prog12/registerajax', register_student, name="student_registration"),
+    path('prog12/studentsajax', student_list, name="student_list")
 ]
