@@ -29,6 +29,8 @@ from prog7.views import course_search
 from prog9.views import addProject
 from prog10.views import StudentList
 from prog10.views import StudentDetails
+from prog11.views import generate_csv_response
+from prog11.views import generate_pdf_response
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,5 +44,7 @@ urlpatterns = [
     path('prog7/coursesearch', course_search),
     path('prog9/register', addProject),
     path('prog10/list/', StudentList.as_view()),
-    path('prog10/details/<int:pk>/', StudentDetails.as_view(),name="details")
+    path('prog10/details/<int:pk>/', StudentDetails.as_view(),name="details"),
+    path('prog11/generatecsv', generate_csv_response),
+    path('prog11/generatepdf',generate_pdf_response)
 ]
