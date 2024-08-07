@@ -1,128 +1,85 @@
-//2D transformations on basic objects using GLUT
+// Basic geometric operations on 3D objects
+using namespace std;
+#include <iostream>
+#include <GL/glut.h>
 
-#include<GL/glut.h>
+int k = 0;
+float v[4][3] = {{0, 0, 1}, {-1, -1, -1}, {1, -1, -1}, {0, 1, -1}};
 
-#define ORIGINAL -1
-#define TRANSLATE 1
-#define ROTATEZ 2
-#define ROTATE_PIV 3
-
-int TRANSFORM = ORIGINAL;
-float tx=50,ty = 50,tz=0;
-float rz = 60, px=0, py=160;
-
-void obj()
+void triangle(float a[3], float b[3], float c[3])
 {
-  glColor3f(.6,.2,.2);
-  glBegin(GL_POLYGON);
-    glVertex2f(-15,-50); glVertex2f(15,-50);
-    glVertex2f(15,10); glVertex2f(-15,10);
-  glEnd();
-  
-  glColor3f(.4,.6,.1);
-  glBegin(GL_TRIANGLES);
-    glVertex2f(-50,10); glVertex2f(0,60); glVertex2f(50,10); glColor3f(.3,.6,.1);
-    glVertex2f(-50,40); glVertex2f(0,110); glVertex2f(50,40);glColor3f(.2,.6,.1);
-    glVertex2f(-50,70); glVertex2f(0,160); glVertex2f(50,70);
-  glEnd();
-  
-  glColor3f(1,0,0); glPointSize(5);
-  glBegin(GL_POINTS); glVertex2f(0,159); glEnd();
+	glBegin(GL_TRIANGLES);
+	glVertex3fv(a);
+	glVertex3fv(b);
+	glVertex3fv(c);
+	glEnd();
+}
+
+void divide_triangle(float a[3], float b[3], float c[3], int k)
+{
+	if (k > 0)
+	{
+		float m1[3], m2[3], m3[3];
+		for (int i = 0; i < 3; i++)
+		{
+			m1[i] = (a[i] + b[i]) / 2;
+			m2[i] = (a[i] + c[i]) / 2;
+			m3[i] = (b[i] + c[i]) / 2;
+		}
+		divide_triangle(a, m1, m2, k - 1);
+		divide_triangle(b, m1, m3, k - 1);
+		divide_triangle(c, m2, m3, k - 1);
+	}
+	else
+		triangle(a, b, c);
+}
+
+void tetrahedron()
+{
+	glColor3f(0, 0, 0);
+	divide_triangle(v[1], v[2], v[3], k);
+
+	glColor3f(1, 0, 0);
+	divide_triangle(v[0], v[1], v[2], k);
+
+	glColor3f(0, 0, 1);
+	divide_triangle(v[0], v[1], v[3], k);
+
+	glColor3f(1, 1, 0);
+	divide_triangle(v[0], v[2], v[3], k);
 }
 
 void display()
 {
-  glClear(GL_COLOR_BUFFER_BIT);
-  switch(TRANSFORM)
-  {
-     case -1:
-          obj();
-          break;
-     case TRANSLATE:
-          glPushMatrix();
-          glTranslatef(tx,ty,tz);
-          obj();
-          glPopMatrix();
-          break;
-     case ROTATEZ:
-         glPushMatrix();
-         glRotatef(rz,0,0,1);// rotate 30 deg about z axis
-         obj();
-         glPopMatrix();
-         break;
-     case ROTATE_PIV:
-         glPushMatrix();
-         glTranslatef(px,py,0);
-         glRotatef(rz,0,0,1);
-         glTranslatef(-px,-py,0);
-		 obj();
-         glPopMatrix();
-         break;
-   }
-  glFlush();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glPushMatrix();
+	//	glRotatef(45,1,0,0);
+	tetrahedron();
+	glPopMatrix();
+	glFlush();
 }
 
 void myinit()
 {
-  glClearColor(1,1,1,1);
-  glMatrixMode(GL_PROJECTION);
-  gluOrtho2D(-250,250,-250,250);
-  glMatrixMode(GL_MODELVIEW);
-}
-
-void menu(int id)
-{
-  switch(id)
-  {
-     case 0:
-       exit(0);
-       break;
-     case -1:
-        TRANSFORM = ORIGINAL;
-        break;
-     case 1:
-		TRANSFORM = TRANSLATE;
-        break;
-   }
-   glutPostRedisplay();
-}
-
-void rot_menu(int id)
-{
-  switch(id)
-  {
-	case 2:
-      TRANSFORM = ROTATEZ;
-      break;
-    case 3:
-      TRANSFORM = ROTATE_PIV;
-      break;
-}
-  glutPostRedisplay();
+	glClearColor(1, 1, 1, 1);
+	glMatrixMode(GL_PROJECTION);
+	glOrtho(-2, 2, -2, 2, -3, 3);
+	glMatrixMode(GL_MODELVIEW);
 }
 
 int main(int argc, char **argv)
 {
-   glutInit(&argc, argv);
-   glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
+	cout << "Enter the number of subdivisions : ";
+	cin >> k;
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE | GLUT_DEPTH);
 
-   glutInitWindowSize(500,500);
-   glutCreateWindow("2D Transformations on 2D objects");
-   myinit();
-   int rot_id = glutCreateMenu(rot_menu);
-   glutAddMenuEntry("Rotate about z(60)",2);
-   glutAddMenuEntry("Rotate about piv(0,160)",3);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("3D Object Transformations - Sierpinski");
+	myinit();
 
-   glutCreateMenu(menu); //main menu
-   glutAddMenuEntry("Exit",0);
-   glutAddMenuEntry("Original",-1);
-   glutAddMenuEntry("Translate",1);
-   glutAddSubMenu("Rotate",rot_id);
-
-   glutAttachMenu(GLUT_RIGHT_BUTTON);
-
-   glutDisplayFunc(display);
-
-   glutMainLoop();
-   return 0;
+	glutDisplayFunc(display);
+	glEnable(GL_DEPTH_TEST);
+	glutMainLoop();
+	return 0;
 }
